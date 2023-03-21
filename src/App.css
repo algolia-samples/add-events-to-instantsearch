@@ -66,6 +66,10 @@ em {
   grid-template-columns: auto auto auto;
 }
 
+.ais-Hits-item {
+  box-shadow: 0 0 0 0px;
+}
+
 .searchbox {
   margin-bottom: 2rem;
 }
@@ -89,3 +93,30 @@ em {
   flex: 1;
   padding: 10px;
 }
+
+button {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.pokeball {
+  transition: transform .7s ease-in-out;
+}
+
+.pokeball:hover {
+  transform: rotate(30deg);
+}
+
+.card {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  transition: box-shadow 0.3s ease-in-out;
+  transition: transform .7s ease-in-out;
+}
+
+.card:hover {
+  filter: drop-shadow(2px 5px 5px rgba(0,0,0,0.15));
+  transform: rotate(2deg);
+}
+

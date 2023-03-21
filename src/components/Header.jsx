@@ -6,6 +6,7 @@ export default function Header() {
     <header className="header">
       <a href="/">
         <img 
+          className="pokeball"
           src={pokeball}
           alt="Pokeball Logo"
           height="100px"

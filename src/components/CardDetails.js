@@ -33,7 +33,14 @@ const CardDetails = () => {
       setLoading(false);
     });
   }, []);
-  
+
+  if (error) {
+    return (
+      <>
+        {error}
+      </>
+    )
+  }
 
   if (!data) {
     return (
@@ -47,7 +54,7 @@ const CardDetails = () => {
     <div>
       <Header />
       <div className="container">
-        <button onClick={goBack}>⬅ Back</button>
+        <button onClick={goBack}><h2>⬅ Back</h2></button>
         <Card data={data} />
         <p>
           <strong>Data</strong>

@@ -10,8 +10,8 @@ export default function Hit(props) {
     <article>
       <Link to={`card/${props.hit.objectID}`}>
         <img
+          className="card"
           src={props.hit.images.small}
-          className="product__image"
           alt={props.hit.name}
         />
       </Link>

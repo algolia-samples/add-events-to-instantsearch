@@ -25,13 +25,14 @@ export default function Card(props) {
           }
           </ul>
           <button onClick={handleClick}>
-            <img src={pokeball} alt="Catch" height="40px" width="40px" border="0"/>
+            <img className="pokeball" src={pokeball} alt="Catch" height="100px" width="100px" border="0"/>
+            <br />Catch &apos;em!
           </button>
         </div>
         <div className="column">
           <img
+            className="card"
             src={props.data.images.large}
-            className="product__image"
             alt={props.data.name}
           />
         </div>
