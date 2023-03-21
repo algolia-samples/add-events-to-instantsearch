@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom"
 import Search from "./components/Search"
-import CardDetails from "./CardDetails"
+import CardDetails from "./components/CardDetails"
 
 import './App.css';
 

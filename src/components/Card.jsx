@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import pokeball from '../assets/pokeball_icon.svg';
 
 function handleClick() {
   alert("boop!");
@@ -8,8 +9,8 @@ function handleClick() {
 export default function Card(props) {
   return (
     <>
-      <article>
-        <div className="search__desc">
+      <div className="row">
+        <div className="column">
           <h1>{props.data.name}</h1>
           <ul>
             <li><strong className="hit-info">{props.data.set}</strong></li>
@@ -23,14 +24,18 @@ export default function Card(props) {
             <li><strong className="hit-info">Evolves from: {props.data.evolvesFrom}</strong></li>
           }
           </ul>
-          <button onClick={handleClick}>Boop</button>
+          <button onClick={handleClick}>
+            <img src={pokeball} alt="Catch" height="40px" width="40px" border="0"/>
+          </button>
         </div>
-        <img
-          src={props.data.images.large}
-          className="product__image"
-          alt={props.data.name}
-        />
-      </article>
+        <div className="column">
+          <img
+            src={props.data.images.large}
+            className="product__image"
+            alt={props.data.name}
+          />
+        </div>
+      </div>
     </>
   );
 }

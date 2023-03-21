@@ -20,8 +20,12 @@ export default function Search() {
     <div>
       <Header />
       <div className="container">
-        <InstantSearch searchClient={searchClient} indexName="pokemon-cards">
-          <Configure hitsPerPage={10} />
+        <InstantSearch
+          searchClient={searchClient}
+          indexName="pokemon-cards"
+          routing={true}
+        >
+          <Configure hitsPerPage={12} />
           <div className="search-panel">
             <div className="search-panel__filters">
               <Panel header="set">
