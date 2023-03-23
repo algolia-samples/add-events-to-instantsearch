@@ -9,8 +9,8 @@ export default function Header() {
           className="pokeball"
           src={pokeball}
           alt="Pokeball Logo"
-          height="100px"
-          width="100px"
+          height="80px"
+          width="80px"
         />
       </a>
       <h1 className="header-title">
