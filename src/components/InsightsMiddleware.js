@@ -15,6 +15,8 @@ export default function InsightsMiddleware() {
       }
     })
 
+    aa('setUserToken', 'Ash Ketchum');
+
     return use(middleware)
   }, [use])
 

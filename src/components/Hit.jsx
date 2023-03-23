@@ -5,22 +5,22 @@ import {
   Highlight,
 } from 'react-instantsearch-hooks-web';
 
-export default function Hit(props) {
+export default function Hit({hit, sendEvent}) {
   return (
     <article>
-      <Link to={`card/${props.hit.objectID}`}>
+      <Link to={`card/${hit.objectID}`} onClick={()=>sendEvent('click', hit, 'Card Clicked')}>
         <img
           className="card"
-          src={props.hit.images.small}
-          alt={props.hit.name}
+          src={hit.images.small}
+          alt={hit.name}
         />
       </Link>
       <div className="search__desc">
-        <h1><Highlight attribute="name" hit={props.hit} /></h1>
+        <h1><Highlight attribute="name" hit={hit} /></h1>
         <br />
-        <strong className="hit-type">{props.hit.types[0]}</strong>
+        <strong className="hit-type">{hit.types[0]}</strong>
         <br />
-        <strong className="hit-info">{props.hit.rarity} | {props.hit.hp}</strong>
+        <strong className="hit-info">{hit.rarity} | {hit.hp}</strong>
       </div>
     </article>
   );
@@ -28,5 +28,6 @@ export default function Hit(props) {
 
 Hit.propTypes = {
   hit: PropTypes.object.isRequired,
+  sendEvent: PropTypes.func.isRequired,
 };
 
