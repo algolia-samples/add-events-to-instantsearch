@@ -8,7 +8,6 @@ import {
   RefinementList,
   SearchBox
 } from 'react-instantsearch-hooks-web';
-import InsightsMiddleware from './InsightsMiddleware';
 import { Panel } from './Panel';
 import Header from './Header';
 import Hit from './Hit';
@@ -25,7 +24,6 @@ export default function Search() {
           indexName="pokemon-cards"
           routing={true}
         >
-          <InsightsMiddleware />
           <Configure
             hitsPerPage={12} 
           />
