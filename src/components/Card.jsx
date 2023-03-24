@@ -30,11 +30,13 @@ export default function Card(props) {
           </button>
         </div>
         <div className="column">
-          <img
-            className="card"
-            src={props.data.images.large}
-            alt={props.data.name}
-          />
+          <div className="detailCardContainer">
+            <img
+              className="detailCardImage"
+              src={props.data.images.large}
+              alt={props.data.name}
+            />
+          </div>
         </div>
       </div>
     </>
