@@ -24,7 +24,7 @@ export default function Card({data}) {
         }
         </ul>
         <button onClick={handleClick}>
-          <img className="pokeball" src={pokeball} alt="Catch" height="150px" width="150px" border="0"/>
+          <img className="pokeball" src={pokeball} alt="Catch" height="120px" width="120px" border="0"/>
           <br />Catch &apos;em!
         </button>
       </div>

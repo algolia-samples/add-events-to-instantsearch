@@ -14,10 +14,10 @@ export default function Header() {
         />
       </a>
       <h1 className="header-title">
-          Adding Insights to InstanSearch
+         Gotta Click &apos;em All!
       </h1>
       <p className="header-subtitle">
-        using{' '}
+        adding Insights to {' '}
         <a href="https://github.com/algolia/react-instantsearch">
           React InstantSearch Hooks
         </a>
