@@ -27,14 +27,6 @@ const CardDetails = () => {
       <div className="container">
         <button onClick={goBack}><h2>⬅ Back</h2></button>
         <Card data={data} />
-        <p>
-          <strong>Data</strong>
-          <code>{JSON.stringify(data, null, 2)}</code>
-        </p>
-        <p>
-          <strong>Params Props: </strong>
-          <code>{JSON.stringify(params, null, 2)}</code>
-        </p>
       </div>
     </div>
   )

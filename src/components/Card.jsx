@@ -6,21 +6,21 @@ function handleClick() {
   alert("boop!");
 }
 
-export default function Card(props) {
+export default function Card({data}) {
   return (
     <div className="row">
       <div className="column">
-        <h1>{props.data.name}</h1>
+        <h1>{data.name}</h1>
         <ul>
-          <li><strong className="hit-info">{props.data.set}</strong></li>
-          <li><strong className="hit-type">{props.data.types[0]}</strong></li>
-          <li><strong className="hit-info">{props.data.rarity}</strong></li>
-          <li><strong className="hit-info">{props.data.hp} HP</strong></li>
-        {'evolvesTo' in props.data &&
-          <li><strong className="hit-info">Evolves to: {props.data.evolvesTo}</strong></li>
+          <li><strong className="hit-info">{data.set}</strong></li>
+          <li><strong className="hit-type">{data.types[0]}</strong></li>
+          <li><strong className="hit-info">{data.rarity}</strong></li>
+          <li><strong className="hit-info">{data.hp} HP</strong></li>
+        {'evolvesTo' in data &&
+          <li><strong className="hit-info">Evolves to: {data.evolvesTo}</strong></li>
         }
-        {'evolvesFrom' in props.data &&
-          <li><strong className="hit-info">Evolves from: {props.data.evolvesFrom}</strong></li>
+        {'evolvesFrom' in data &&
+          <li><strong className="hit-info">Evolves from: {data.evolvesFrom}</strong></li>
         }
         </ul>
         <button onClick={handleClick}>
@@ -32,8 +32,8 @@ export default function Card(props) {
         <div className="detailCardContainer">
           <img
             className="detailCardImage"
-            src={props.data.images.large}
-            alt={props.data.name}
+            src={data.images.large}
+            alt={data.name}
           />
         </div>
       </div>
