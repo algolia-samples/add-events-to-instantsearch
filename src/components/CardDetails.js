@@ -42,7 +42,7 @@ const CardDetails = () => {
     )
   }
 
-  if (!data) {
+  if (!data || loading === true) {
     return (
       <>
         Loading card details...
