@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pokeball from '../assets/pokeball_icon.svg';
+import { useSearchParams } from 'react-router-dom';
+import { indexName, userToken } from '../utilities/algolia'
+import aa from 'search-insights'
 
-function handleClick() {
-  alert("boop!");
+function handleClick(objectID, queryID) {
+  // this should send conversion event. Needs: objectID(s), index, queryID, user token
+  alert(`boop! ${objectID} ${indexName} ${queryID} ${userToken}`);
+  aa('convertedObjectIDsAfterSearch', {
+      userToken: userToken,
+      index:  indexName,
+      eventName: 'Card Caught',
+      queryID: queryID,
+      objectIDs: objectID
+  });
 }
 
 export default function Card({data}) {
+  const [searchParams] = useSearchParams();
   return (
     <div className="row">
       <div className="column">
@@ -23,7 +35,7 @@ export default function Card({data}) {
           <li><strong className="hit-info">Evolves from: {data.evolvesFrom}</strong></li>
         }
         </ul>
-        <button onClick={handleClick}>
+        <button onClick={() => handleClick(data.objectID, searchParams.get('queryID'))}>
           <img className="pokeball" src={pokeball} alt="Catch" height="120px" width="120px" border="0"/>
           <br />Catch &apos;em!
         </button>

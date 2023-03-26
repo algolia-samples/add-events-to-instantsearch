@@ -1,8 +1,8 @@
 import aa from 'search-insights'
-
-import { createInsightsMiddleware } from 'instantsearch.js/es/middlewares'
-import { useInstantSearch } from 'react-instantsearch-hooks-web'
-import { useLayoutEffect } from 'react'
+import { createInsightsMiddleware } from 'instantsearch.js/es/middlewares';
+import { useInstantSearch } from 'react-instantsearch-hooks-web';
+import { useLayoutEffect } from 'react';
+import { userToken } from '../utilities/algolia';
 
 export default function InsightsMiddleware() {
   const { use } = useInstantSearch()
@@ -15,7 +15,7 @@ export default function InsightsMiddleware() {
       }
     })
 
-    aa('setUserToken', 'AshKetchum');
+    aa('setUserToken', userToken);
 
     return use(middleware)
   }, [use])

@@ -8,7 +8,7 @@ import {
 export default function Hit({hit, sendEvent}) {
   return (
     <article>
-      <Link to={`card/${hit.objectID}`} onClick={()=>sendEvent('click', hit, 'Card Clicked')}>
+      <Link to={`card/${hit.objectID}?queryID=${hit.__queryID}`} onClick={()=>sendEvent('click', hit, 'Card Clicked')}>
         <img
           className="card"
           src={hit.images.small}

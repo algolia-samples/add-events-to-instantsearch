@@ -1,11 +1,7 @@
-import algoliasearch from "algoliasearch";
+import { searchClient, indexName } from '../utilities/algolia';
 import { useEffect, useState } from "react";
 
-const searchClient = algoliasearch(
-  "OKF83BFQS4",
-  "2ee1381ed11d3fe70b60605b1e2cd3f4"
-);
-const index = searchClient.initIndex("pokemon-cards");
+const index = searchClient.initIndex(indexName);
 
 export const usePokemonData = (cardId) => {
   const [pokemonData, setPokemonData] = useState({
