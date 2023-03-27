@@ -7,13 +7,12 @@ import aa from 'search-insights'
 
 function handleClick(objectID, queryID) {
   // this should send conversion event. Needs: objectID(s), index, queryID, user token
-  alert(`boop! ${objectID} ${indexName} ${queryID} ${userToken}`);
   aa('convertedObjectIDsAfterSearch', {
       userToken: userToken,
       index:  indexName,
       eventName: 'Card Caught',
       queryID: queryID,
-      objectIDs: objectID
+      objectIDs: [objectID]
   });
 }
 
