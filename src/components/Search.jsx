@@ -1,5 +1,5 @@
 import React from 'react';
-import algoliasearch from 'algoliasearch/lite';
+import { searchClient, indexName } from '../utilities/algolia';
 import {
   Configure,
   Hits,
@@ -8,12 +8,9 @@ import {
   RefinementList,
   SearchBox
 } from 'react-instantsearch-hooks-web';
-import InsightsMiddleware from './InsightsMiddleware';
 import { Panel } from './Panel';
 import Header from './Header';
 import Hit from './Hit';
-
-const searchClient = algoliasearch('OKF83BFQS4', '2ee1381ed11d3fe70b60605b1e2cd3f4');
 
 export default function Search() {
   return (
@@ -22,12 +19,11 @@ export default function Search() {
       <div className="container">
         <InstantSearch
           searchClient={searchClient}
-          indexName="pokemon-cards"
+          indexName={indexName}
           routing={true}
         >
-          <InsightsMiddleware />
           <Configure
-            hitsPerPage={12} 
+            hitsPerPage={12}
           />
           <div className="search-panel">
             <div className="search-panel__filters">
