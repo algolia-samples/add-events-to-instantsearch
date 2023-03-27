@@ -13,7 +13,6 @@ import { Panel } from './Panel';
 import Header from './Header';
 import Hit from './Hit';
 
-
 export default function Search() {
   return (
     <div>
