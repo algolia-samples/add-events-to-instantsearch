@@ -1,5 +1,6 @@
 import React from 'react';
 import { searchClient, indexName } from '../utilities/algolia';
+import { analytics } from '../utilities/segment';
 import {
   Configure,
   Hits,
@@ -7,12 +8,13 @@ import {
   Pagination,
   RefinementList,
   SearchBox
-} from 'react-instantsearch-hooks-web';
+} from 'react-instantsearch';
 import { Panel } from './Panel';
 import Header from './Header';
 import Hit from './Hit';
 
 export default function Search() {
+  analytics.page()
   return (
     <div>
       <Header />

@@ -1,7 +1,11 @@
 import React from 'react';
 import pokeball from '../assets/pokeball_icon.svg';
+import { analytics } from '../utilities/segment';
+import { userToken } from '../utilities/algolia';
 
 export default function Header() {
+  analytics.identify(userToken)
+  analytics.page()
   return (
     <header className="header">
       <a href="/">
