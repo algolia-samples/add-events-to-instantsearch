@@ -1,6 +1,5 @@
 import React from 'react';
 import { searchClient, indexName } from '../utilities/algolia';
-import { analytics } from '../utilities/segment';
 import {
   Configure,
   Hits,
@@ -14,7 +13,6 @@ import Header from './Header';
 import Hit from './Hit';
 
 export default function Search() {
-  analytics.page()
   return (
     <div>
       <Header />
@@ -23,8 +21,10 @@ export default function Search() {
           searchClient={searchClient}
           indexName={indexName}
           routing={true}
+          insights={true}
         >
           <Configure
+            clickAnalytics={true}
             hitsPerPage={12}
           />
           <div className="search-panel">
