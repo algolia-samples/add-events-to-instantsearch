@@ -9,7 +9,7 @@ import {
 export default function Hit({hit}) {
   return (
     <article>
-      <Link to={`card/${hit.objectID}?queryID=${hit.__queryID}`} onClick={()=>analytics.track('click')}>
+      <Link to={`card/${hit.objectID}?queryID=${hit.__queryID}`} onClick={()=>analytics.track('Product Clicked')}>
         <img
           className="card"
           src={hit.images.small}
