@@ -21,7 +21,7 @@ export default function Search() {
           searchClient={searchClient}
           indexName={indexName}
           routing={true}
-          insights={true}
+          insights={false}
         >
           <Configure
             clickAnalytics={true}

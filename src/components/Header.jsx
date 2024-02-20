@@ -2,10 +2,8 @@ import React from 'react';
 import pokeball from '../assets/pokeball_icon.svg';
 import { analytics } from '../utilities/segment';
 import { userToken } from '../utilities/algolia';
-import aa from 'search-insights';
 
 export default function Header() {
-  aa('setUserToken', userToken);
   analytics.identify(userToken)
   analytics.page()
   return (
