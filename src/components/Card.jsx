@@ -5,7 +5,7 @@ import { analytics } from '../utilities/segment.js';
 import { indexName } from '../utilities/algolia.js';
 import { useSearchParams } from 'react-router-dom';
 
-function handleClick(objectID, queryID) {
+function handleClick(objectID, queryID, indexName) {
   analytics.track('Order Completed', {
     search_index: indexName,
     products: [
@@ -43,7 +43,7 @@ export default function Card({data}) {
           <li><strong className="hit-info">Evolves from: {data.evolvesFrom}</strong></li>
         }
         </ul>
-        <button onClick={() => handleClick(data.objectID, searchParams.get('queryID'))}>
+        <button onClick={() => handleClick(data.objectID, searchParams.get('queryID'), indexName)}>
           <img className="pokeball" src={pokeball} alt="Catch" height="120px" width="120px" border="0"/>
           <br />Catch &apos;em!
         </button>
