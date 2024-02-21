@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { analytics } from '../utilities/segment';
 import {
   Highlight,
 } from 'react-instantsearch';
@@ -9,7 +8,7 @@ import {
 export default function Hit({hit}) {
   return (
     <article>
-      <Link to={`card/${hit.objectID}?queryID=${hit.__queryID}&position=${hit.__position}`} onClick={()=>analytics.track('Product Clicked')}>
+      <Link to={`card/${hit.objectID}`}>
         <img
           className="card"
           src={hit.images.small}

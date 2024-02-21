@@ -1,32 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pokeball from '../assets/pokeball_icon.svg';
-import { analytics } from '../utilities/segment.js';
-import { indexName } from '../utilities/algolia.js';
-import { useSearchParams } from 'react-router-dom';
 
-function handleClick(objectID, queryID, indexName) {
-  analytics.track('Order Completed', {
-    search_index: indexName,
-    products: [
-      {
-        product_id: objectID
-      }
-    ],
-    queryID: queryID
-  }
-  )
+function handleClick() {
   alert("boop!");
 }
 
 export default function Card({data}) {
-  const [searchParams] = useSearchParams();
-  analytics.track('Product Clicked', {
-    product_id: data.objectID,
-    position: searchParams.get('position'),
-    search_index: indexName,
-  });
-
   return (
     <div className="row">
       <div className="column">
@@ -43,7 +23,7 @@ export default function Card({data}) {
           <li><strong className="hit-info">Evolves from: {data.evolvesFrom}</strong></li>
         }
         </ul>
-        <button onClick={() => handleClick(data.objectID, searchParams.get('queryID'), indexName)}>
+        <button onClick={handleClick}>
           <img className="pokeball" src={pokeball} alt="Catch" height="120px" width="120px" border="0"/>
           <br />Catch &apos;em!
         </button>

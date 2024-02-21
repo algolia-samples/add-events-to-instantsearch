@@ -24,7 +24,6 @@ export default function Search() {
           insights={false}
         >
           <Configure
-            clickAnalytics={true}
             hitsPerPage={12}
           />
           <div className="search-panel">
