@@ -21,6 +21,12 @@ function handleClick(objectID, queryID) {
 
 export default function Card({data}) {
   const [searchParams] = useSearchParams();
+  analytics.track('Product Clicked', {
+    product_id: data.objectID,
+    position: searchParams.get('position'),
+    search_index: indexName,
+  });
+
   return (
     <div className="row">
       <div className="column">
