@@ -7,9 +7,13 @@ import {
   Pagination,
   RefinementList,
   SearchBox
-} from 'react-instantsearch-hooks-web';
-import InsightsMiddleware from './InsightsMiddleware';
+} from 'react-instantsearch';
 import { Panel } from './Panel';
+import aa from 'search-insights';
+import { userToken } from '../utilities/algolia';
+
+// Set user token for insights
+aa('setUserToken', userToken);
 import Header from './Header';
 import Hit from './Hit';
 
@@ -22,8 +26,13 @@ export default function Search() {
           searchClient={searchClient}
           indexName={indexName}
           routing={true}
+          insights={{
+            insightsClient: aa,
+            insightsInitParams: {
+              useCookie: true
+            }
+          }}
         >
-          <InsightsMiddleware />
           <Configure
             hitsPerPage={12}
             clickAnalytics={true}
