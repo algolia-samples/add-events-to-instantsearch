@@ -55,6 +55,7 @@ em {
 
 .search-panel__filters {
   flex: 1;
+  margin-right: 1.5rem;
 }
 
 .search-panel__results {
@@ -64,10 +65,14 @@ em {
 .ais-Hits-list {
   display: grid;
   grid-template-columns: auto auto auto;
+  gap: 1rem;
 }
 
 .ais-Hits-item {
-  box-shadow: 0 0 0 0px;
+  box-shadow: none;
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 .searchbox {
@@ -94,7 +99,7 @@ em {
   padding: 10px;
 }
 
-button {
+button:not([class*="ais-"]) {
   border: none;
   cursor: pointer;
   appearance: none;
@@ -129,4 +134,46 @@ button {
   max-width: 100%;
   max-height: 100vh;
   margin: auto;
+}
+
+/* Item component for Chat carousel */
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+  margin: 0.375rem;
+  text-align: center;
+}
+
+.item-card {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
+  transition: transform .3s ease-in-out;
+  max-width: 67px;
+  height: auto;
+}
+
+.item-card:hover {
+  transform: scale(1.05);
+}
+
+.item-desc {
+  margin-top: 0.375rem;
+  font-size: 0.7rem;
+}
+
+.item-desc h3 {
+  font-size: 0.8rem;
+  margin: 0.1875rem 0;
+  font-weight: 600;
+}
+
+.item-type {
+  color: #8e43e7;
+  font-size: 0.65rem;
+}
+
+.item-info {
+  color: #666;
+  font-size: 0.65rem;
 }
