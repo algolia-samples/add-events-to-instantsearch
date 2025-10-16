@@ -16,7 +16,7 @@ export default function Item({ item }) {
         />
       </Link>
       <div className="item-desc">
-        <h3><Highlight attribute="name" hit={item} /></h3>
+        <h3>{item.name}</h3>
         <strong className="item-type">{item.types[0]}</strong>
         <br />
         <strong className="item-info">{item.rarity} | {item.hp}</strong>
