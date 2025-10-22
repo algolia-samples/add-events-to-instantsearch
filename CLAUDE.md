@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a React application demonstrating how to integrate Algolia search insights and analytics events into a Pokemon card search interface using React InstantSearch v7. The app tracks view, click, and conversion events for search analytics.
+This is a React application demonstrating how to integrate Algolia search insights and analytics events into a Pokemon card search interface using React InstantSearch v7. The app tracks view, click, and conversion events for search analytics. It also includes an Agent Studio Chat widget integration for conversational search.
 
 ## Development Commands
 
@@ -13,6 +13,7 @@ This is a React application demonstrating how to integrate Algolia search insigh
 - `npm run build` - Build for production
 - `npm run test` - Run tests
 - `npm run lint` - Run ESLint
+- `npm run publish` - Build and deploy to Vercel production
 
 ## Architecture
 
@@ -20,6 +21,8 @@ This is a React application demonstrating how to integrate Algolia search insigh
 - **React Router**: Main navigation between search (`/`) and card details (`/card/:cardID`)
 - **React InstantSearch v7**: Primary search interface framework
 - **search-insights**: Algolia's analytics library for tracking events
+- **Agent Studio Chat**: Conversational search widget integrated into the search interface
+- **Segment Analytics**: Optional analytics integration for tracking user behavior
 
 ### Key Components
 
@@ -28,11 +31,17 @@ This is a React application demonstrating how to integrate Algolia search insigh
 - Uses InstantSearch provider with built-in insights configuration
 - Configured for routing and click analytics
 - Insights configured directly on InstantSearch component via `insights` prop
+- Includes Chat component with Agent Studio integration (agentId: b4bb7553-fe20-47fd-b5e6-417f6b6dc22a)
 
 **Hit Component (`src/components/Hit.jsx`)**:
 - Individual search result card
 - Implements click event tracking via `sendEvent('click', hit, 'Card Clicked')`
 - Links to card details with queryID parameter
+
+**Item Component (`src/components/Item.jsx`)**:
+- Pokemon card display component used by Chat widget
+- Shows card image, name, type, rarity, and HP
+- Links to card details page
 
 **Card Details (`src/components/CardDetails.jsx` + `src/components/Card.jsx`)**:
 - Detail view for individual Pokemon cards
@@ -60,6 +69,11 @@ The app implements Algolia's three-tier analytics:
 - Exports configured search client and credentials
 - Central configuration point for all Algolia interactions
 
+**Segment Setup** (`src/utilities/segment.js`):
+- Initializes Segment Analytics Browser client
+- Loads analytics using the REACT_APP_SEGMENT_WRITE_KEY
+- Exposes analytics globally via window.analytics
+
 ### Data Fetching
 
 **Custom Hook** (`src/effects/usePokemonData.js`):
@@ -70,10 +84,13 @@ The app implements Algolia's three-tier analytics:
 ### Branch Structure
 
 - `main` - Complete implementation with all events
+- `add-chat-widget` - Current branch with Agent Studio Chat integration
 - `step-zero-base` - Base app without analytics
-- `step-one-middleware` - Adds view event tracking
-- `step-two-clicks` - Adds click event tracking  
+- `step-one-middelware` - Adds view event tracking (note: branch name has typo)
+- `step-two-clicks` - Adds click event tracking
 - `step-three-convert` - Adds conversion event tracking
+- `segment-events` - Branch with Segment analytics integration
+- `pre-segment-events` - State before Segment integration
 
 ## Key Integration Points
 
@@ -84,6 +101,18 @@ When modifying this codebase:
 3. **Insights Configuration**: Keep `insights` prop configuration on InstantSearch component for automatic view tracking
 4. **User Token**: Maintain consistent userToken across all analytics calls (set via `aa('setUserToken', userToken)`)
 5. **Search Configuration**: Keep `clickAnalytics={true}` in Configure component
+6. **Chat Widget**: The Agent Studio Chat component requires an agentId and uses the Item component for rendering results
+7. **Segment Integration**: Optional Segment analytics is initialized in src/utilities/segment.js
+
+## Chat Widget Integration
+
+The app includes Algolia's Agent Studio Chat widget for conversational search:
+
+- **Component**: `<Chat>` from `react-instantsearch`
+- **Agent ID**: b4bb7553-fe20-47fd-b5e6-417f6b6dc22a
+- **Item Component**: Uses custom `Item.jsx` to render Pokemon cards in chat responses
+- **Placeholder**: "Ask me anything about Pokemon cards..."
+- **Integration**: Embedded directly in the search interface alongside traditional search results
 
 ## Migration Notes
 
@@ -93,3 +122,4 @@ This codebase has been upgraded from `react-instantsearch-hooks-web` (v6) to `re
 - **Insights Integration**: No longer requires separate `InsightsMiddleware` component
 - **Built-in Insights**: Insights are now configured directly via the `insights` prop on `<InstantSearch>`
 - **Automatic Setup**: The insights client and user token are configured in the Search component
+- **Chat Widget**: Added in v7 as a built-in component for Agent Studio integration
