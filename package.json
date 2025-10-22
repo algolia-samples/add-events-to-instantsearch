@@ -9,7 +9,8 @@
     "lint": "eslint",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "publish": "npm run build && vercel --prod"
   },
   "author": "Chuck Meyer <chuck.meyer@algolia.com>",
   "license": "MIT",
@@ -18,9 +19,9 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "instantsearch.css": "https://pkg.csb.dev/algolia/instantsearch/commit/e339b83d/instantsearch.css",
-    "react-instantsearch": "https://pkg.csb.dev/algolia/instantsearch/commit/e339b83d/react-instantsearch",
-    "react-instantsearch-core": "https://pkg.csb.dev/algolia/instantsearch/commit/e339b83d/react-instantsearch-core",
+    "instantsearch.css": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/instantsearch.css",
+    "react-instantsearch": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/react-instantsearch",
+    "react-instantsearch-core": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/react-instantsearch-core",
     "react-router-dom": "^6.8.2",
     "react-scripts": "^5.0.1",
     "search-insights": "^2.4.0"
