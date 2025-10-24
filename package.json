@@ -16,14 +16,12 @@
   "license": "MIT",
   "dependencies": {
     "algoliasearch": "^4.15.0",
+    "instantsearch.css": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/instantsearch.css",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "instantsearch.css": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/instantsearch.css",
-    "react-instantsearch": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/react-instantsearch",
-    "react-instantsearch-core": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/react-instantsearch-core",
+    "react-instantsearch": "^7.17.0",
     "react-router-dom": "^6.8.2",
-    "react-scripts": "^5.0.1",
     "search-insights": "^2.4.0"
   },
   "browserslist": {
@@ -42,6 +40,8 @@
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "eslint": "^8.35.0",
-    "eslint-plugin-react": "^7.32.2"
+    "eslint-plugin-react": "^7.32.2",
+    "react-scripts": "^5.0.1",
+    "vercel": "^48.6.0"
   }
 }
