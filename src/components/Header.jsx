@@ -17,7 +17,7 @@ export default function Header() {
          Gotta Click &apos;em All!
       </h1>
       <p className="header-subtitle">
-        adding Insights to {' '}
+        agentic search with {' '}
         <a href="https://github.com/algolia/react-instantsearch">
           React InstantSearch Hooks
         </a>
