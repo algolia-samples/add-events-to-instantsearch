@@ -120,54 +120,87 @@ em {
   font-weight: 600;
 }
 
-/* RangeInput styling */
-.ais-Panel-body .ais-RangeInput {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
+/* Custom RangeSlider styling */
+.ais-Panel-body .custom-range-slider {
+  padding: 0.5rem 0.25rem;
 }
 
-.ais-Panel-body .ais-RangeInput-input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  color: #2d3748;
+.ais-Panel-body .custom-range-slider .rc-slider {
+  margin-bottom: 1rem;
+}
+
+.ais-Panel-body .custom-range-slider .rc-slider-rail {
+  background-color: #e2e8f0;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.ais-Panel-body .custom-range-slider .rc-slider-track {
+  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  height: 6px;
+  border-radius: 3px;
+}
+
+.ais-Panel-body .custom-range-slider .rc-slider-handle {
   background: white;
+  border: 2px solid #8e43e7;
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+  opacity: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
 }
 
-.ais-Panel-body .ais-RangeInput-input:focus {
-  outline: none;
-  border-color: #8e43e7;
+.ais-Panel-body .custom-range-slider .rc-slider-handle:hover,
+.ais-Panel-body .custom-range-slider .rc-slider-handle:active,
+.ais-Panel-body .custom-range-slider .rc-slider-handle:focus {
+  border-color: #00aeff;
+  box-shadow: 0 4px 8px rgba(142, 67, 231, 0.3);
+  transform: scale(1.1);
 }
 
-.ais-Panel-body .ais-RangeInput-separator {
+.ais-Panel-body .custom-range-slider .rc-slider-handle-dragging {
+  border-color: #00aeff !important;
+  box-shadow: 0 0 0 5px rgba(142, 67, 231, 0.2) !important;
+}
+
+.ais-Panel-body .range-slider-values {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+}
+
+.ais-Panel-body .range-slider-value {
+  color: #2d3748;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.ais-Panel-body .range-slider-separator {
   color: #4a5568;
   font-size: 0.875rem;
 }
 
-.ais-Panel-body .ais-RangeInput-submit {
-  padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
-  color: white;
-  border: none;
+.ais-Panel-body .range-slider-reset {
+  padding: 0.25rem 0.5rem;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.875rem;
+  color: #8e43e7;
+  font-size: 0.7rem;
   font-weight: 600;
-  transition: transform 0.2s ease;
-  width: 100%;
-  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.ais-Panel-body .ais-RangeInput-submit:hover {
-  transform: translateY(-1px);
-}
-
-.ais-Panel-body .ais-RangeInput-submit:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.ais-Panel-body .range-slider-reset:hover {
+  background: #8e43e7;
+  color: white;
+  border-color: #8e43e7;
 }
 
 

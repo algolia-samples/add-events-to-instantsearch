@@ -6,11 +6,11 @@ import {
   Hits,
   InstantSearch,
   Pagination,
-  RangeInput,
   RefinementList,
   SearchBox
 } from 'react-instantsearch';
 import 'instantsearch.css/themes/algolia-min.css';
+import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import aa from 'search-insights';
 import { userToken } from '../utilities/algolia';
@@ -45,7 +45,7 @@ export default function Search() {
           <div className="search-panel">
             <div className="search-panel__filters">
               <Panel header="price">
-                <RangeInput
+                <RangeSlider
                   attribute="pricing.cardmarket.avg"
                   min={0}
                   max={3000}
