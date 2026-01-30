@@ -58,6 +58,119 @@ em {
   margin-right: 1.5rem;
 }
 
+/* Filter panel card styling */
+.ais-Panel {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ais-Panel-header {
+  padding: 0.875rem 1rem;
+  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  border-bottom: none;
+}
+
+.ais-Panel-body {
+  padding: 1rem;
+}
+
+.ais-Panel-body .ais-RefinementList-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ais-Panel-body .ais-RefinementList-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f7fafc;
+}
+
+.ais-Panel-body .ais-RefinementList-item:last-child {
+  border-bottom: none;
+}
+
+.ais-Panel-body .ais-RefinementList-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #2d3748;
+}
+
+.ais-Panel-body .ais-RefinementList-checkbox {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.ais-Panel-body .ais-RefinementList-count {
+  margin-left: auto;
+  background: #f7fafc;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+/* RangeInput styling */
+.ais-Panel-body .ais-RangeInput {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ais-Panel-body .ais-RangeInput-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #2d3748;
+  background: white;
+}
+
+.ais-Panel-body .ais-RangeInput-input:focus {
+  outline: none;
+  border-color: #8e43e7;
+}
+
+.ais-Panel-body .ais-RangeInput-separator {
+  color: #4a5568;
+  font-size: 0.875rem;
+}
+
+.ais-Panel-body .ais-RangeInput-submit {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.ais-Panel-body .ais-RangeInput-submit:hover {
+  transform: translateY(-1px);
+}
+
+.ais-Panel-body .ais-RangeInput-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
 .search-panel__results {
   flex: 3;
 }

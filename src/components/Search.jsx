@@ -6,6 +6,7 @@ import {
   Hits,
   InstantSearch,
   Pagination,
+  RangeInput,
   RefinementList,
   SearchBox
 } from 'react-instantsearch';
@@ -40,10 +41,22 @@ export default function Search() {
             hitsPerPage={12}
             clickAnalytics={true}
           />
+          <SearchBox placeholder="Search for cards" className="searchbox" />
           <div className="search-panel">
             <div className="search-panel__filters">
+              <Panel header="price">
+                <RangeInput
+                  attribute="pricing.cardmarket.avg"
+                  min={0}
+                  max={3000}
+                />
+              </Panel>
               <Panel header="set">
-                <RefinementList attribute="set" />
+                <RefinementList
+                  attribute="set"
+                  searchable={true}
+                  searchablePlaceholder="Search sets..."
+                />
               </Panel>
               <Panel header="type">
                 <RefinementList attribute="types" />
@@ -53,7 +66,6 @@ export default function Search() {
               </Panel>
             </div>
             <div className="search-panel__results">
-              <SearchBox placeholder="Search for cards" className="searchbox" />
               <Chat
                 agentId="b4bb7553-fe20-47fd-b5e6-417f6b6dc22a"
                 itemComponent={Item}
