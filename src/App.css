@@ -179,3 +179,187 @@ button:not([class*="ais-"]) {
   color: #666;
   font-size: 0.65rem;
 }
+
+/* Card detail layout */
+.card-detail-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.card-detail-content {
+  flex: 0 0 500px;
+  min-width: 0;
+}
+
+.card-detail-image {
+  flex: 1;
+  position: sticky;
+  top: 1rem;
+  max-width: 500px;
+}
+
+/* Card Information Section */
+.card-info-section {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.card-info-section h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.card-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #666;
+}
+
+.info-value {
+  color: #333;
+}
+
+/* Pricing section styles - compact version */
+.pricing-section-compact {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.pricing-section-compact > h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.pricing-source-compact {
+  margin-bottom: 1.5rem;
+}
+
+.pricing-source-compact:last-child {
+  margin-bottom: 0;
+}
+
+.pricing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.pricing-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #8e43e7;
+}
+
+.pricing-updated-inline {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.pricing-table-compact {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  font-size: 0.9rem;
+}
+
+.pricing-table-compact th {
+  background-color: #8e43e7;
+  color: white;
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.pricing-table-compact th:first-child {
+  text-align: left;
+}
+
+.pricing-table-compact td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.pricing-table-compact tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.pricing-table-compact tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table-compact .variation-label {
+  text-align: left;
+  font-weight: 600;
+  color: #555;
+}
+
+.pricing-table-compact .price-value {
+  font-weight: 600;
+  color: #00aeff;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .card-detail-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card-detail-content {
+    flex: 1;
+    width: 100%;
+  }
+
+  .card-detail-image {
+    position: relative;
+    top: 0;
+    max-width: 100%;
+    order: -1; /* Move image to top on mobile */
+  }
+
+  .card-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-table-compact {
+    font-size: 0.75rem;
+  }
+
+  .pricing-table-compact th,
+  .pricing-table-compact td {
+    padding: 0.35rem;
+  }
+
+  .pricing-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
