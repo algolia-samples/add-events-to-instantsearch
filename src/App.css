@@ -127,6 +127,35 @@ button:not([class*="ais-"]) {
   transform: rotate(2deg);
 }
 
+/* Hit component article container */
+article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.search__desc {
+  background: white;
+  border-radius: 8px;
+  padding: 0;
+  margin-top: 0.75rem;
+  border: 1px solid #e2e8f0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.search__desc h1 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0.625rem 0.75rem;
+  background: white;
+  color: #1a202c;
+  line-height: 1.3;
+}
+
 .detailCardContainer {
   display: grid;
   height: 100%;
@@ -143,15 +172,19 @@ button:not([class*="ais-"]) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 90px;
+  min-width: 120px;
   margin: 0.375rem;
   text-align: center;
+  background: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .item-card {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
   transition: transform .3s ease-in-out;
-  max-width: 67px;
+  max-width: 50px;
   height: auto;
 }
 
@@ -160,14 +193,23 @@ button:not([class*="ais-"]) {
 }
 
 .item-desc {
-  margin-top: 0.375rem;
+  margin-top: 0.25rem;
   font-size: 0.7rem;
+  width: 100%;
 }
 
 .item-desc h3 {
-  font-size: 0.8rem;
-  margin: 0.1875rem 0;
+  font-size: 0.75rem;
+  margin: 0 0 0.125rem 0;
   font-weight: 600;
+  color: #1a202c;
+}
+
+.item-line {
+  font-size: 0.65rem;
+  color: #4a5568;
+  margin: 0.0625rem 0;
+  line-height: 1.2;
 }
 
 .item-type {
@@ -178,6 +220,43 @@ button:not([class*="ais-"]) {
 .item-info {
   color: #666;
   font-size: 0.65rem;
+}
+
+.item-set {
+  color: #8e43e7;
+  font-size: 0.65rem;
+}
+
+.item-price {
+  color: #2d3748;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+/* Hit component styles */
+.hit-line {
+  font-size: 0.875rem;
+  color: #4a5568;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.4;
+}
+
+.hit-line:nth-child(even) {
+  background: #f7fafc;
+}
+
+.hit-line:nth-child(odd) {
+  background: white;
+}
+
+.hit-label {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.hit-price {
+  font-weight: 700;
+  color: #2d3748;
 }
 
 /* Card detail layout */

@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { getSimplePriceDisplay } from '../utilities/priceHelpers';
 
 export default function Item({ item }) {
+  const pricing = getSimplePriceDisplay(item.pricing);
+  const primaryPrice = pricing?.tcgplayer || pricing?.cardmarket;
+
   return (
     <div className="item">
       <Link to={`card/${item.objectID}`}>
@@ -14,9 +18,11 @@ export default function Item({ item }) {
       </Link>
       <div className="item-desc">
         <h3>{item.name}</h3>
-        <strong className="item-type">{item.types[0]}</strong>
-        <br />
-        <strong className="item-info">{item.rarity} | {item.hp}</strong>
+        <div className="item-line">{item.set}</div>
+        <div className="item-line">
+          {item.rarity}
+          {primaryPrice && <span> • {primaryPrice.formatted}</span>}
+        </div>
       </div>
     </div>
   );
