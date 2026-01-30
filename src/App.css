@@ -118,6 +118,8 @@ button:not([class*="ais-"]) {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
   transition: box-shadow 0.3s ease-in-out;
   transition: transform .7s ease-in-out;
+  max-width: 245px;
+  height: auto;
 }
 
 .card:hover {
