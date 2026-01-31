@@ -210,7 +210,7 @@ em {
 
 .ais-Hits-list {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -221,8 +221,15 @@ em {
   padding: 0;
 }
 
-.searchbox {
+.search-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
   margin-bottom: 2rem;
+}
+
+.searchbox {
+  flex: 1;
 }
 
 .pagination {
@@ -264,7 +271,7 @@ button:not([class*="ais-"]) {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
   transition: box-shadow 0.3s ease-in-out;
   transition: transform .7s ease-in-out;
-  max-width: 245px;
+  width: 245px;
   height: auto;
 }
 
@@ -278,6 +285,7 @@ article {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 245px;
 }
 
 .search__desc {
@@ -290,6 +298,7 @@ article {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 245px;
 }
 
 .search__desc h1 {

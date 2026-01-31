@@ -9,7 +9,6 @@ import {
   RefinementList,
   SearchBox
 } from 'react-instantsearch';
-import 'instantsearch.css/themes/algolia-min.css';
 import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import aa from 'search-insights';
@@ -41,14 +40,21 @@ export default function Search() {
             hitsPerPage={12}
             clickAnalytics={true}
           />
-          <SearchBox placeholder="Search for cards" className="searchbox" />
+          <div className="search-header">
+            <SearchBox placeholder="Search for cards" className="searchbox" />
+            <Chat
+              agentId="b4bb7553-fe20-47fd-b5e6-417f6b6dc22a"
+              itemComponent={Item}
+              placeholder="Ask me anything about Pokemon cards..."
+            />
+          </div>
           <div className="search-panel">
             <div className="search-panel__filters">
               <Panel header="price">
                 <RangeSlider
                   attribute="pricing.cardmarket.avg"
                   min={0}
-                  max={3000}
+                  max={2500}
                 />
               </Panel>
               <Panel header="set">
@@ -66,11 +72,6 @@ export default function Search() {
               </Panel>
             </div>
             <div className="search-panel__results">
-              <Chat
-                agentId="b4bb7553-fe20-47fd-b5e6-417f6b6dc22a"
-                itemComponent={Item}
-                placeholder="Ask me anything about Pokemon cards..."
-              />
               <Hits hitComponent={Hit} />
               <div className="pagination">
                 <Pagination />
