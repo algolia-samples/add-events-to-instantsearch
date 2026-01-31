@@ -272,7 +272,8 @@ button:not([class*="ais-"]) {
   transition: box-shadow 0.3s ease-in-out;
   transition: transform .7s ease-in-out;
   width: 245px;
-  height: auto;
+  height: 342px;
+  object-fit: contain;
 }
 
 .card:hover {
