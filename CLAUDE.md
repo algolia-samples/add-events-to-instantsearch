@@ -96,10 +96,32 @@ The app implements Algolia's three-tier analytics:
 
 When modifying this codebase:
 
-1. **Event Tracking**: Maintain the three-tier event pattern (view/click/convert)
-2. **QueryID Preservation**: Ensure queryID flows from search → hit → card details for conversion attribution
-3. **Insights Configuration**: Keep `insights` prop configuration on InstantSearch component for automatic view tracking
-4. **User Token**: Maintain consistent userToken across all analytics calls (set via `aa('setUserToken', userToken)`)
+### Core Tenets (Always Follow)
+
+1. **Start every conversation by creating a new Git branch**
+- Before making any code changes, create a new branch for the work done in this conversation.
+- Branch names should be short, descriptive, and use kebab-case (e.g. `feat/search-ui`, `fix/chat-hit-template`, `chore/docs-update`).
+
+2. **Follow JavaScript + React best practices**
+- Prefer functional components and hooks.
+- Keep components small, composable, and easy to test.
+- Use clear naming, consistent formatting, and avoid unnecessary abstractions.
+- Keep state as local as possible; lift state only when needed.
+- Handle async work safely (cancellation/guards where appropriate).
+
+3. **Cleanups/refactors require asking first**
+- If you notice code that “should be cleaned up,” **do not refactor immediately**.
+- Instead:
+- Call it out explicitly as a proposed cleanup.
+- Explain why it’s beneficial (readability, bugs, perf, consistency).
+- Ask for approval before doing it.
+- Exception: very small fixes required to complete the requested change (e.g. lint error caused by your edits) are OK, but keep them minimal and scoped.
+
+4. **Prefer pre-built Algolia InstantSearch components**
+- Use InstantSearch’s built-in widgets/components before building custom UI.
+- Favor composability (widget + slot/templating) over re-implementing behavior.
+- **Chat:** When a chat experience is needed, use the **pre-built Chat component** and its corresponding **Hit template** rather than custom chat rendering.
+
 5. **Search Configuration**: Keep `clickAnalytics={true}` in Configure component
 6. **Chat Widget**: The Agent Studio Chat component requires an agentId and uses the Item component for rendering results
 7. **Segment Integration**: Optional Segment analytics is initialized in src/utilities/segment.js

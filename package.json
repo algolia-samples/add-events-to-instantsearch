@@ -16,8 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "algoliasearch": "^4.15.0",
-    "instantsearch.css": "https://pkg.csb.dev/algolia/instantsearch/commit/59cb645b/instantsearch.css",
     "prop-types": "^15.8.1",
+    "rc-slider": "^11.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-instantsearch": "^7.17.0",
