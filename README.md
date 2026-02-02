@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="src/assets/tcgsearch-vertical.png" alt="TCG Search Logo" width="300">
+</p>
+
 # TCG Search
 
 A Pokemon Trading Card Game search application built with React InstantSearch v7, featuring Algolia's search analytics and Agent Studio Chat integration. This demo showcases how to build a modern search experience with conversational AI, complete with view, click, and conversion event tracking.
