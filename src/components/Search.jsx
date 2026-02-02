@@ -7,7 +7,8 @@ import {
   InstantSearch,
   Pagination,
   RefinementList,
-  SearchBox
+  SearchBox,
+  SortBy
 } from 'react-instantsearch';
 import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
@@ -45,7 +46,7 @@ export default function Search() {
             clickAnalytics={true}
           />
           <div className="search-header">
-            <div className="search-header-row">
+            <div className="search-controls-row">
               <button
                 className="filter-toggle-btn"
                 onClick={() => setIsFilterOpen(true)}
@@ -59,6 +60,13 @@ export default function Search() {
                 <span>Filters</span>
               </button>
               <SearchBox placeholder="Search for cards" className="searchbox" />
+              <SortBy
+                items={[
+                  { label: 'Sort A-Z', value: indexName },
+                  { label: 'Sort Price ↑', value: 'pokemon_cards_from_supabase_price_asc' },
+                  { label: 'Sort Price ↓', value: 'pokemon_cards_from_supabase_price_desc' }
+                ]}
+              />
             </div>
             <Chat
               agentId="b4bb7553-fe20-47fd-b5e6-417f6b6dc22a"
