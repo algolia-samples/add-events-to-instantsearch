@@ -13,7 +13,8 @@ export default function Item({ item }) {
         <img
           className="card item-card"
           src={item.images.small}
-          alt={item.name}
+          alt={`${item.name} Pokemon card`}
+          loading="lazy"
         />
       </Link>
       <div className="item-desc">

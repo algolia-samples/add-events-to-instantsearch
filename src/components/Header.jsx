@@ -14,13 +14,10 @@ export default function Header() {
         />
       </a>
       <h1 className="header-title">
-         Gotta Click &apos;em All!
+        TCG Search
       </h1>
       <p className="header-subtitle">
-        agentic search with {' '}
-        <a href="https://github.com/algolia/react-instantsearch">
-          React InstantSearch Hooks
-        </a>
+        Gotta Click &apos;em All!
       </p>
     </header>
   );

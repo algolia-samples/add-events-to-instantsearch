@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { searchClient, indexName } from '../utilities/algolia';
 import {
   Chat,
@@ -19,8 +19,12 @@ aa('setUserToken', userToken);
 import Header from './Header';
 import Hit from './Hit';
 import Item from './Item';
+import FilterDrawer from './FilterDrawer';
+import VariantFilter from './VariantFilter';
 
 export default function Search() {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   return (
     <div>
       <Header />
@@ -41,34 +45,69 @@ export default function Search() {
             clickAnalytics={true}
           />
           <div className="search-header">
-            <SearchBox placeholder="Search for cards" className="searchbox" />
+            <div className="search-header-row">
+              <button
+                className="filter-toggle-btn"
+                onClick={() => setIsFilterOpen(true)}
+                aria-label="Open filters"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <line x1="4" y1="6" x2="20" y2="6"/>
+                  <line x1="4" y1="12" x2="20" y2="12"/>
+                  <line x1="4" y1="18" x2="20" y2="18"/>
+                </svg>
+                <span>Filters</span>
+              </button>
+              <SearchBox placeholder="Search for cards" className="searchbox" />
+            </div>
             <Chat
               agentId="b4bb7553-fe20-47fd-b5e6-417f6b6dc22a"
               itemComponent={Item}
               placeholder="Ask me anything about Pokemon cards..."
             />
           </div>
+
+          <FilterDrawer
+            isOpen={isFilterOpen}
+            onClose={() => setIsFilterOpen(false)}
+          />
           <div className="search-panel">
             <div className="search-panel__filters">
-              <Panel header="price">
-                <RangeSlider
-                  attribute="pricing.cardmarket.avg"
-                  min={0}
-                  max={2500}
-                />
-              </Panel>
               <Panel header="set">
                 <RefinementList
                   attribute="set"
                   searchable={true}
                   searchablePlaceholder="Search sets..."
+                  limit={5}
+                  showMore={true}
+                  showMoreLimit={20}
                 />
+              </Panel>
+              <Panel header="artist">
+                <RefinementList
+                  attribute="artist"
+                  searchable={true}
+                  searchablePlaceholder="Search artists..."
+                  limit={5}
+                  showMore={true}
+                  showMoreLimit={20}
+                />
+              </Panel>
+              <Panel header="variant">
+                <VariantFilter />
               </Panel>
               <Panel header="type">
                 <RefinementList attribute="types" />
               </Panel>
               <Panel header="rarity">
                 <RefinementList attribute="rarity" />
+              </Panel>
+              <Panel header="value">
+                <RangeSlider
+                  attribute="pricing.cardmarket.avg"
+                  min={0}
+                  max={2500}
+                />
               </Panel>
             </div>
             <div className="search-panel__results">
