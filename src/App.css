@@ -296,6 +296,32 @@ button:not([class*="ais-"]) {
   background-color: inherit;
 }
 
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 0 1.5rem 0;
+}
+
+.back-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
 .pokeball {
   transition: transform .7s ease-in-out;
 }
@@ -479,6 +505,36 @@ article {
   position: sticky;
   top: 1rem;
   max-width: 500px;
+}
+
+/* Card detail name header with card number */
+.card-detail-name-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #3D7DCA;
+  gap: 1rem;
+}
+
+.card-detail-name-header h1 {
+  font-size: 1.75rem;
+  font-weight: 400;
+  margin: 0;
+  color: #1a202c;
+  line-height: 1.2;
+  font-family: 'Righteous', cursive;
+  flex: 1;
+}
+
+.card-detail-number {
+  font-size: 0.875rem;
+  color: #4a5568;
+  font-weight: 600;
+  white-space: nowrap;
+  align-self: flex-end;
 }
 
 /* Card Information Section */
@@ -839,6 +895,11 @@ article {
   color: #2d3748;
   font-weight: 500;
   text-align: right;
+}
+
+.hit-value-emphasized {
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 /* Responsive design for mobile and tablet portrait */

@@ -25,7 +25,7 @@ const CardDetails = () => {
     <div>
       <Header />
       <div className="container">
-        <button onClick={goBack}><h2>⬅ Back</h2></button>
+        <button className="back-button" onClick={goBack}>⬅ Back</button>
         <Card data={data} />
       </div>
     </div>
