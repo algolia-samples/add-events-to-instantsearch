@@ -8,7 +8,6 @@
     "type": "git",
     "url": "https://github.com/algolia-samples/tcg-search.git"
   },
-  "homepage": "https://github.com/algolia-samples/tcg-search",
   "scripts": {
     "start": "react-scripts start",
     "lint": "eslint",
