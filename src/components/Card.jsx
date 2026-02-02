@@ -40,7 +40,7 @@ function getVariantColor(variant) {
     'Holo': '#f39c12',
     'Reverse': '#9b59b6'
   };
-  return colors[variant] || '#8e43e7';
+  return colors[variant] || '#3B4CCA';
 }
 
 // Helper to render TCGPlayer compact table

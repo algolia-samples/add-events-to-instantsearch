@@ -21,7 +21,7 @@ body {
 }
 
 em {
-  background: cyan;
+  background: rgba(0, 174, 255, 0.2);
   font-style: normal;
 }
 
@@ -171,13 +171,13 @@ em {
 .ais-Panel-body .custom-range-slider .rc-slider-handle:active,
 .ais-Panel-body .custom-range-slider .rc-slider-handle:focus {
   border-color: #00aeff;
-  box-shadow: 0 4px 8px rgba(142, 67, 231, 0.3);
+  box-shadow: 0 4px 8px rgba(59, 76, 202, 0.3);
   transform: scale(1.1);
 }
 
 .ais-Panel-body .custom-range-slider .rc-slider-handle-dragging {
   border-color: #00aeff !important;
-  box-shadow: 0 0 0 5px rgba(142, 67, 231, 0.2) !important;
+  box-shadow: 0 0 0 5px rgba(59, 76, 202, 0.2) !important;
 }
 
 .ais-Panel-body .range-slider-values {
@@ -332,8 +332,7 @@ button:not([class*="ais-"]) {
 
 .card {
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.15));
-  transition: box-shadow 0.3s ease-in-out;
-  transition: transform .7s ease-in-out;
+  transition: filter 0.3s ease-in-out, transform 0.7s ease-in-out;
   width: 100%;
   height: auto;
   object-fit: contain;
@@ -459,7 +458,7 @@ article {
 .item-price {
   color: #2d3748;
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 /* Hit component styles */
@@ -484,7 +483,7 @@ article {
 }
 
 .hit-price {
-  font-weight: 700;
+  font-weight: 600;
   color: #2d3748;
 }
 
@@ -865,7 +864,7 @@ article {
   border-radius: 4px;
   color: white;
   font-size: 0.7rem;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   white-space: nowrap;
@@ -874,7 +873,7 @@ article {
 
 .hit-price-prominent {
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #3B4CCA;
   padding: 0.4rem 0.875rem;
   background: #f7fafc;
