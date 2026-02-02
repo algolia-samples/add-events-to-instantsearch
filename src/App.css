@@ -226,7 +226,7 @@ em {
 .ais-Hits-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 3rem;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -781,7 +781,7 @@ article {
 .hit-name-header {
   width: 100%;
   padding: 0.5rem 0.75rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   background: #3B4CCA;
   border-radius: 8px;
   display: flex;
@@ -948,7 +948,7 @@ article {
   /* Mobile grid: 1 column */
   .ais-Hits-list {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 3rem;
     padding: 0 1rem;
     width: 100%;
   }
@@ -999,7 +999,7 @@ article {
     flex: 1;
     min-width: 0;
     max-width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     overflow: hidden;
   }
 
@@ -1137,7 +1137,7 @@ article {
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .ais-Hits-list {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 2rem;
   }
 
   article.hit-card {
@@ -1171,7 +1171,7 @@ article {
 
   .ais-Hits-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 2rem;
   }
 
   /* Desktop: vertical layout */
@@ -1193,6 +1193,6 @@ article {
 
   .hit-card .search__desc {
     width: 245px;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
   }
 }
