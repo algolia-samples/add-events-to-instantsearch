@@ -4,7 +4,7 @@ import pokeball from '../assets/pokeball_icon.svg';
 import { useSearchParams } from 'react-router-dom';
 import { indexName, userToken } from '../utilities/algolia'
 import aa from 'search-insights'
-import { getDetailedPricing } from '../utilities/priceHelpers'
+import { getDetailedPricing, getSimplePriceDisplay } from '../utilities/priceHelpers'
 
 function handleClick(objectID, queryID) {
   // this should send conversion event. Needs: objectID(s), index, queryID, user token
@@ -15,6 +15,32 @@ function handleClick(objectID, queryID) {
       queryID: queryID,
       objectIDs: [objectID]
   });
+}
+
+// Helper to get all variant types from variants object
+function getVariantTypes(variants) {
+  if (!variants) return [];
+
+  const variantList = [];
+
+  // Add all active variants
+  if (variants.firstEdition) variantList.push('1st Ed');
+  if (variants.wPromo) variantList.push('Promo');
+  if (variants.holo) variantList.push('Holo');
+  if (variants.reverse) variantList.push('Reverse');
+
+  return variantList;
+}
+
+// Helper to get variant badge color
+function getVariantColor(variant) {
+  const colors = {
+    '1st Ed': '#e74c3c',
+    'Promo': '#ff6b6b',
+    'Holo': '#f39c12',
+    'Reverse': '#9b59b6'
+  };
+  return colors[variant] || '#8e43e7';
 }
 
 // Helper to render TCGPlayer compact table
@@ -150,6 +176,9 @@ function CardmarketTable({ cardmarketData }) {
 export default function Card({data}) {
   const [searchParams] = useSearchParams();
   const pricingData = getDetailedPricing(data.pricing);
+  const pricing = getSimplePriceDisplay(data.pricing);
+  const primaryPrice = pricing?.tcgplayer || pricing?.cardmarket;
+  const variants = getVariantTypes(data.variants);
 
   // Separate TCGPlayer and Cardmarket data
   const tcgplayerData = pricingData?.find(p => p.source === 'TCGPlayer');
@@ -158,38 +187,80 @@ export default function Card({data}) {
   return (
     <div className="card-detail-container">
       <div className="card-detail-content">
-        <h1>{data.name}</h1>
+        {/* Name header with Pokemon blue border and card number */}
+        <div className="card-detail-name-header">
+          <h1>{data.name}</h1>
+          {data.number && (
+            <span className="card-detail-number">#{data.number}</span>
+          )}
+        </div>
 
-        {/* Card Battle Info */}
-        <div className="card-info-section">
-          <h3>Card Information</h3>
-          <div className="card-info-grid">
-            <div className="info-item">
-              <span className="info-label">Set:</span>
-              <span className="info-value">{data.set}</span>
+        {/* Primary price display - prominent */}
+        {primaryPrice && (
+          <div className="hit-price-prominent">
+            {primaryPrice.formatted}
+          </div>
+        )}
+
+        {/* Variant badges */}
+        {variants.length > 0 && (
+          <div className="hit-variants-row">
+            <span className="hit-label">Variants:</span>
+            <div className="variant-badges" role="list" aria-label="Card variants">
+              {variants.map((variant) => (
+                <span
+                  key={variant}
+                  className="variant-badge"
+                  style={{ backgroundColor: getVariantColor(variant) }}
+                  role="listitem"
+                  aria-label={`${variant} variant`}
+                >
+                  {variant}
+                </span>
+              ))}
             </div>
-            <div className="info-item">
-              <span className="info-label">Type:</span>
-              <span className="info-value hit-type">{data.types[0]}</span>
+          </div>
+        )}
+
+        {/* Card Battle Info - styled like hit details */}
+        <div className="search__desc">
+          <div className="hit-details">
+            <div className="hit-detail-row">
+              <span className="hit-label">Set:</span>
+              <span className="hit-value hit-value-emphasized">{data.set}</span>
             </div>
-            <div className="info-item">
-              <span className="info-label">Rarity:</span>
-              <span className="info-value">{data.rarity}</span>
+            {data.artist && (
+              <div className="hit-detail-row">
+                <span className="hit-label">Artist:</span>
+                <span className="hit-value hit-value-emphasized">{data.artist}</span>
+              </div>
+            )}
+            <div className="hit-detail-row">
+              <span className="hit-label">Rarity:</span>
+              <span className="hit-value">{data.rarity}</span>
             </div>
-            <div className="info-item">
-              <span className="info-label">HP:</span>
-              <span className="info-value">{data.hp}</span>
-            </div>
+            {data.types && data.types.length > 0 && (
+              <div className="hit-detail-row">
+                <span className="hit-label">Type:</span>
+                <span className="hit-value">{data.types[0]}</span>
+              </div>
+            )}
+            {data.hp && (
+              <div className="hit-detail-row">
+                <span className="hit-label">HP:</span>
+                <span className="hit-value">{data.hp}</span>
+              </div>
+            )}
             {'evolvesFrom' in data && (
-              <div className="info-item">
-                <span className="info-label">Evolves from:</span>
-                <span className="info-value">{data.evolvesFrom}</span>
+              <div className="hit-detail-row">
+                <span className="hit-label">Evolves from:</span>
+                <span className="hit-value">{data.evolvesFrom}</span>
               </div>
             )}
             {'evolvesTo' in data && (
-              <div className="info-item">
-                <span className="info-label">Evolves to:</span>
-                <span className="info-value">{data.evolvesTo}</span>
+              <div className="hit-detail-row">
+                <span className="hit-label">Evolves to:</span>
+                <span className="hit-value">{data.evolvesTo}</span>
               </div>
             )}
           </div>
