@@ -14,10 +14,10 @@ export default function Header() {
         />
       </a>
       <h1 className="header-title">
-         Gotta Click &apos;em All!
+        TCG Search
       </h1>
       <p className="header-subtitle">
-        TCG Search
+        Gotta Click &apos;em All!
       </p>
     </header>
   );
