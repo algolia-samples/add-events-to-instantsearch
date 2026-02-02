@@ -29,7 +29,7 @@ function getVariantColor(variant) {
     'Holo': '#f39c12',
     'Reverse': '#9b59b6'
   };
-  return colors[variant] || '#8e43e7';
+  return colors[variant] || '#3B4CCA';
 }
 
 export default function Hit({hit, sendEvent}) {
@@ -41,6 +41,9 @@ export default function Hit({hit, sendEvent}) {
     <article className="hit-card" aria-label={`${hit.name} Pokemon card`}>
       <div className="hit-name-header">
         <h1><Highlight attribute="name" hit={hit} /></h1>
+        {hit.number && (
+          <span className="hit-card-number">#{hit.number}</span>
+        )}
       </div>
       <div className="hit-card-image-wrapper">
         <Link
