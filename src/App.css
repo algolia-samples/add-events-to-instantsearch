@@ -30,7 +30,7 @@ em {
   align-items: center;
   min-height: 50px;
   padding: 0.5rem 1rem;
-  background-image: linear-gradient(to right, #8e43e7, #00aeff);
+  background-image: linear-gradient(to right, #3B4CCA, #00aeff);
   color: #fff;
   margin-bottom: 1rem;
 }
@@ -85,7 +85,7 @@ em {
 
 .ais-Panel-header {
   padding: 0.875rem 1rem;
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  background: linear-gradient(135deg, #3B4CCA 0%, #00aeff 100%);
   color: white;
   font-weight: 600;
   font-size: 0.95rem;
@@ -151,14 +151,14 @@ em {
 }
 
 .ais-Panel-body .custom-range-slider .rc-slider-track {
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  background: linear-gradient(135deg, #3B4CCA 0%, #00aeff 100%);
   height: 6px;
   border-radius: 3px;
 }
 
 .ais-Panel-body .custom-range-slider .rc-slider-handle {
   background: white;
-  border: 2px solid #8e43e7;
+  border: 2px solid #3B4CCA;
   width: 20px;
   height: 20px;
   margin-top: -7px;
@@ -204,7 +204,7 @@ em {
   background: #f7fafc;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
-  color: #8e43e7;
+  color: #3B4CCA;
   font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
@@ -213,9 +213,9 @@ em {
 }
 
 .ais-Panel-body .range-slider-reset:hover {
-  background: #8e43e7;
+  background: #3B4CCA;
   color: white;
-  border-color: #8e43e7;
+  border-color: #3B4CCA;
 }
 
 
@@ -301,7 +301,7 @@ button:not([class*="ais-"]) {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  background: linear-gradient(135deg, #3B4CCA 0%, #00aeff 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -442,7 +442,7 @@ article {
 }
 
 .item-type {
-  color: #8e43e7;
+  color: #3B4CCA;
   font-size: 0.65rem;
 }
 
@@ -452,7 +452,7 @@ article {
 }
 
 .item-set {
-  color: #8e43e7;
+  color: #3B4CCA;
   font-size: 0.65rem;
 }
 
@@ -511,30 +511,31 @@ article {
 .card-detail-name-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   width: 100%;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
   margin-bottom: 0.5rem;
-  border-bottom: 2px solid #3D7DCA;
   gap: 1rem;
+  background: #3B4CCA;
+  border-radius: 8px;
 }
 
 .card-detail-name-header h1 {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 400;
   margin: 0;
-  color: #1a202c;
+  color: white;
   line-height: 1.2;
   font-family: 'Righteous', cursive;
   flex: 1;
 }
 
 .card-detail-number {
-  font-size: 0.875rem;
-  color: #4a5568;
+  font-size: 0.8rem;
+  color: white;
   font-weight: 600;
   white-space: nowrap;
-  align-self: flex-end;
+  opacity: 0.9;
 }
 
 /* Card Information Section */
@@ -607,7 +608,7 @@ article {
 .pricing-header h3 {
   margin: 0;
   font-size: 1rem;
-  color: #8e43e7;
+  color: #3B4CCA;
 }
 
 .pricing-updated-inline {
@@ -626,7 +627,7 @@ article {
 }
 
 .pricing-table-compact th {
-  background-color: #8e43e7;
+  background-color: #3B4CCA;
   color: white;
   padding: 0.5rem;
   text-align: center;
@@ -699,7 +700,7 @@ article {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem 1rem;
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  background: linear-gradient(135deg, #3B4CCA 0%, #00aeff 100%);
   color: white;
   border-bottom: none;
 }
@@ -742,7 +743,7 @@ article {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
-  background: linear-gradient(135deg, #8e43e7 0%, #00aeff 100%);
+  background: linear-gradient(135deg, #3B4CCA 0%, #00aeff 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -779,19 +780,33 @@ article {
 
 .hit-name-header {
   width: 100%;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
   margin-bottom: 0.5rem;
-  border-bottom: 2px solid #3D7DCA;
+  background: #3B4CCA;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .hit-name-header h1 {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 400;
   margin: 0;
-  color: #1a202c;
+  color: white;
   line-height: 1.2;
   font-family: 'Righteous', cursive;
   text-align: left;
+  flex: 1;
+}
+
+.hit-card-number {
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0.9;
 }
 
 .hit-name-header h1 mark,
@@ -860,7 +875,7 @@ article {
 .hit-price-prominent {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #3D7DCA;
+  color: #3B4CCA;
   padding: 0.4rem 0.875rem;
   background: #f7fafc;
   border-top: 2px solid #e2e8f0;

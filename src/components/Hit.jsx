@@ -41,6 +41,9 @@ export default function Hit({hit, sendEvent}) {
     <article className="hit-card" aria-label={`${hit.name} Pokemon card`}>
       <div className="hit-name-header">
         <h1><Highlight attribute="name" hit={hit} /></h1>
+        {hit.number && (
+          <span className="hit-card-number">#{hit.number}</span>
+        )}
       </div>
       <div className="hit-card-image-wrapper">
         <Link
