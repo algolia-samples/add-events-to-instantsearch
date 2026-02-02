@@ -20,6 +20,7 @@ import Header from './Header';
 import Hit from './Hit';
 import Item from './Item';
 import FilterDrawer from './FilterDrawer';
+import VariantFilter from './VariantFilter';
 
 export default function Search() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -72,19 +73,28 @@ export default function Search() {
           />
           <div className="search-panel">
             <div className="search-panel__filters">
-              <Panel header="price">
-                <RangeSlider
-                  attribute="pricing.cardmarket.avg"
-                  min={0}
-                  max={2500}
-                />
-              </Panel>
               <Panel header="set">
                 <RefinementList
                   attribute="set"
                   searchable={true}
                   searchablePlaceholder="Search sets..."
+                  limit={5}
+                  showMore={true}
+                  showMoreLimit={20}
                 />
+              </Panel>
+              <Panel header="artist">
+                <RefinementList
+                  attribute="artist"
+                  searchable={true}
+                  searchablePlaceholder="Search artists..."
+                  limit={5}
+                  showMore={true}
+                  showMoreLimit={20}
+                />
+              </Panel>
+              <Panel header="variant">
+                <VariantFilter />
               </Panel>
               <Panel header="type">
                 <RefinementList attribute="types" />
@@ -92,11 +102,12 @@ export default function Search() {
               <Panel header="rarity">
                 <RefinementList attribute="rarity" />
               </Panel>
-              <Panel header="variant">
-                <RefinementList attribute="subtypes" searchable={true} searchablePlaceholder="Search variants..." />
-              </Panel>
-              <Panel header="artist">
-                <RefinementList attribute="artist" searchable={true} searchablePlaceholder="Search artists..." />
+              <Panel header="value">
+                <RangeSlider
+                  attribute="pricing.cardmarket.avg"
+                  min={0}
+                  max={2500}
+                />
               </Panel>
             </div>
             <div className="search-panel__results">

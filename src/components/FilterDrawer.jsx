@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { RefinementList } from 'react-instantsearch';
 import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
+import VariantFilter from './VariantFilter';
 
 export default function FilterDrawer({ isOpen, onClose }) {
   return (
@@ -22,25 +23,14 @@ export default function FilterDrawer({ isOpen, onClose }) {
         </div>
 
         <div className="filter-drawer-content">
-          <Panel header="price">
-            <RangeSlider
-              attribute="pricing.cardmarket.avg"
-              min={0}
-              max={2500}
-            />
-          </Panel>
-          <Panel header="variant">
-            <RefinementList
-              attribute="subtypes"
-              searchable={true}
-              searchablePlaceholder="Search variants..."
-            />
-          </Panel>
           <Panel header="set">
             <RefinementList
               attribute="set"
               searchable={true}
               searchablePlaceholder="Search sets..."
+              limit={5}
+              showMore={true}
+              showMoreLimit={20}
             />
           </Panel>
           <Panel header="artist">
@@ -48,13 +38,26 @@ export default function FilterDrawer({ isOpen, onClose }) {
               attribute="artist"
               searchable={true}
               searchablePlaceholder="Search artists..."
+              limit={5}
+              showMore={true}
+              showMoreLimit={20}
             />
+          </Panel>
+          <Panel header="variant">
+            <VariantFilter />
           </Panel>
           <Panel header="type">
             <RefinementList attribute="types" />
           </Panel>
           <Panel header="rarity">
             <RefinementList attribute="rarity" />
+          </Panel>
+          <Panel header="value">
+            <RangeSlider
+              attribute="pricing.cardmarket.avg"
+              min={0}
+              max={2500}
+            />
           </Panel>
         </div>
       </div>
