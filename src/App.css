@@ -104,7 +104,7 @@ em {
 }
 
 .ais-Panel-body .ais-RefinementList-item {
-  padding: 0.5rem 0;
+  padding: 0.35rem 0;
   border-bottom: 1px solid #f7fafc;
 }
 
@@ -261,7 +261,7 @@ em {
 
 .ais-SearchBox-input {
   font-family: 'Righteous', cursive;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
 }
 
 .ais-SearchBox-input::placeholder {
@@ -377,6 +377,11 @@ button:not([class*="ais-"]) {
 
 .back-button:active {
   transform: translateY(0);
+}
+
+.back-button svg {
+  width: 20px;
+  height: 20px;
 }
 
 .pokeball {
