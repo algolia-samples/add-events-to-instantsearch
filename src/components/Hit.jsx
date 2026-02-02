@@ -39,6 +39,9 @@ export default function Hit({hit, sendEvent}) {
 
   return (
     <article className="hit-card" aria-label={`${hit.name} Pokemon card`}>
+      <div className="hit-name-header">
+        <h1><Highlight attribute="name" hit={hit} /></h1>
+      </div>
       <div className="hit-card-image-wrapper">
         <Link
           to={`card/${hit.objectID}?queryID=${hit.__queryID}`}
@@ -54,10 +57,6 @@ export default function Hit({hit, sendEvent}) {
         </Link>
       </div>
       <div className="search__desc">
-        <div className="hit-header">
-          <h1><Highlight attribute="name" hit={hit} /></h1>
-        </div>
-
         {primaryPrice && (
           <div className="hit-price-prominent">
             {primaryPrice.formatted}
