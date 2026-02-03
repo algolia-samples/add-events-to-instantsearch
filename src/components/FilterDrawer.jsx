@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RefinementList } from 'react-instantsearch';
 import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import VariantFilter from './VariantFilter';
+import SearchableDropdown from './SearchableDropdown';
 
 export default function FilterDrawer({ isOpen, onClose }) {
   return (
@@ -23,34 +23,24 @@ export default function FilterDrawer({ isOpen, onClose }) {
         </div>
 
         <div className="filter-drawer-content">
-          <Panel header="set">
-            <RefinementList
-              attribute="set"
-              searchable={true}
-              searchablePlaceholder="Search sets..."
-              limit={5}
-              showMore={true}
-              showMoreLimit={20}
-            />
-          </Panel>
-          <Panel header="artist">
-            <RefinementList
-              attribute="artist"
-              searchable={true}
-              searchablePlaceholder="Search artists..."
-              limit={5}
-              showMore={true}
-              showMoreLimit={20}
-            />
-          </Panel>
+          <SearchableDropdown
+            attribute="set"
+            placeholder="Set"
+          />
+          <SearchableDropdown
+            attribute="artist"
+            placeholder="Artist"
+          />
+          <SearchableDropdown
+            attribute="types"
+            placeholder="Type"
+          />
+          <SearchableDropdown
+            attribute="rarity"
+            placeholder="Rarity"
+          />
           <Panel header="variant">
             <VariantFilter />
-          </Panel>
-          <Panel header="type">
-            <RefinementList attribute="types" />
-          </Panel>
-          <Panel header="rarity">
-            <RefinementList attribute="rarity" />
           </Panel>
           <Panel header="value">
             <RangeSlider
