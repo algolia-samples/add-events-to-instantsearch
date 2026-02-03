@@ -77,6 +77,15 @@ em {
   margin-right: 1.5rem;
 }
 
+.search-panel__filters-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Righteous', cursive;
+  color: #1a202c;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
 /* Filter panel card styling */
 .ais-Panel {
   background: white;
