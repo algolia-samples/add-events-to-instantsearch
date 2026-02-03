@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { searchClient, indexName } from '../utilities/algolia';
+import { searchClient, indexName, indexNamePriceAsc, indexNamePriceDesc } from '../utilities/algolia';
 import {
   Chat,
   Configure,
@@ -63,8 +63,8 @@ export default function Search() {
               <SortBy
                 items={[
                   { label: 'Sort A-Z', value: indexName },
-                  { label: 'Sort Price ↑', value: 'pokemon_cards_from_supabase_price_asc' },
-                  { label: 'Sort Price ↓', value: 'pokemon_cards_from_supabase_price_desc' }
+                  { label: 'Sort Price ↑', value: indexNamePriceAsc },
+                  { label: 'Sort Price ↓', value: indexNamePriceDesc }
                 ]}
               />
             </div>

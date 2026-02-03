@@ -49,7 +49,14 @@ REACT_APP_ALGOLIA_APP_ID=your_app_id
 REACT_APP_ALGOLIA_API_KEY=your_api_key
 REACT_APP_ALGOLIA_INDEX_NAME=pokemon-cards
 REACT_APP_USER_TOKEN=your_user_token
-REACT_APP_SEGMENT_WRITE_KEY=your_segment_key (optional)
+
+# Optional: Sorting with virtual replicas
+# If not set, defaults to ${REACT_APP_ALGOLIA_INDEX_NAME}_price_asc and _price_desc
+REACT_APP_ALGOLIA_INDEX_NAME_PRICE_ASC=pokemon-cards_price_asc
+REACT_APP_ALGOLIA_INDEX_NAME_PRICE_DESC=pokemon-cards_price_desc
+
+# Optional: Segment analytics
+REACT_APP_SEGMENT_WRITE_KEY=your_segment_key
 ```
 
 ## Documentation
