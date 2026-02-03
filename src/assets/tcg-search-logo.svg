@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="640" height="480" viewBox="0 0 640 480"
+     width="640" height="320" viewBox="0 60 640 320"
      role="img" aria-label="TCG Search logo">
   <defs>
     <!-- Yellow fill -->

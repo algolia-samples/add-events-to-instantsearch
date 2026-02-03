@@ -29,7 +29,7 @@ em {
   display: flex;
   align-items: center;
   min-height: 50px;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
   background-image: linear-gradient(to right, #3B4CCA, #00aeff);
   color: #fff;
   margin-bottom: 1rem;
@@ -38,6 +38,10 @@ em {
 .header a {
   color: #fff;
   text-decoration: none;
+}
+
+.header-logo {
+  height: 100px;
 }
 
 .header-title {
@@ -1081,6 +1085,11 @@ article {
 
 /* Responsive design for mobile and tablet portrait */
 @media (max-width: 1024px) {
+  /* Smaller logo on mobile */
+  .header-logo {
+    height: 70px;
+  }
+
   /* Reduce container padding on mobile for consistent margins */
   .container {
     padding: 0.75rem;
@@ -1669,6 +1678,11 @@ article {
 
 /* Desktop layout: keep 3 columns but show filters */
 @media (min-width: 1025px) {
+  /* Larger subtitle on desktop */
+  .header-subtitle {
+    font-size: 1.4rem;
+  }
+
   .container {
     max-width: 1200px;
   }
