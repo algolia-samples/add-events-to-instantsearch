@@ -133,3 +133,4 @@ dist
 .pnp.*
 .vercel
 mise.toml
+.DS_Store
