@@ -9,7 +9,6 @@ import {
   SearchBox,
   SortBy
 } from 'react-instantsearch';
-import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import aa from 'search-insights';
 import { userToken } from '../utilities/algolia';
@@ -109,13 +108,6 @@ export default function Search() {
               />
               <Panel header="variant">
                 <VariantFilter />
-              </Panel>
-              <Panel header="value">
-                <RangeSlider
-                  attribute="pricing.cardmarket.avg"
-                  min={0}
-                  max={2500}
-                />
               </Panel>
             </div>
             <div className="search-panel__results">
