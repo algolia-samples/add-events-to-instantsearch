@@ -9,7 +9,6 @@ import {
   SearchBox,
   SortBy
 } from 'react-instantsearch';
-import { Panel } from './Panel';
 import aa from 'search-insights';
 import { userToken } from '../utilities/algolia';
 
