@@ -36,6 +36,7 @@ export default function FilterDrawer({ isOpen, onClose }) {
           <SearchableDropdown
             attribute="rarity"
             placeholder="Rarity"
+            enableSearch={false}
           />
           <VariantsDropdown />
         </div>

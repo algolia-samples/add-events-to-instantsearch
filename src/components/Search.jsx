@@ -105,6 +105,7 @@ export default function Search() {
               <SearchableDropdown
                 attribute="rarity"
                 placeholder="Rarity"
+                enableSearch={false}
               />
               <VariantsDropdown />
             </div>

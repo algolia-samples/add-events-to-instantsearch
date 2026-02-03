@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useRefinementList } from 'react-instantsearch';
 import { useDropdown } from '../hooks/useDropdown';
 
-export default function SearchableDropdown({ attribute, placeholder, transformItems }) {
+export default function SearchableDropdown({ attribute, placeholder, transformItems, enableSearch = true }) {
   const {
     items,
     refine,
@@ -28,7 +28,8 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
     buttonRef,
     handleSearch: handleSearchBase,
     toggleDropdown,
-  } = useDropdown();
+    enableSearch: enableSearchFromHook,
+  } = useDropdown({ enableSearch });
 
   // Extend base search handler with Algolia's searchForItems
   const handleSearch = (e) => {
@@ -101,16 +102,18 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
 
       {isOpen && (
         <div className="searchable-dropdown__menu" style={menuStyle}>
-          <div className="searchable-dropdown__search">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearch}
-              placeholder="Search..."
-              className="searchable-dropdown__search-input"
-              autoFocus
-            />
-          </div>
+          {enableSearchFromHook && (
+            <div className="searchable-dropdown__search">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Search..."
+                className="searchable-dropdown__search-input"
+                autoFocus
+              />
+            </div>
+          )}
 
           <div className="searchable-dropdown__items">
             {selectedItems.length > 0 && (
@@ -192,4 +195,5 @@ SearchableDropdown.propTypes = {
   attribute: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   transformItems: PropTypes.func,
+  enableSearch: PropTypes.bool,
 };
