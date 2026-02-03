@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import VariantFilter from './VariantFilter';
 import SearchableDropdown from './SearchableDropdown';
@@ -41,13 +40,6 @@ export default function FilterDrawer({ isOpen, onClose }) {
           />
           <Panel header="variant">
             <VariantFilter />
-          </Panel>
-          <Panel header="value">
-            <RangeSlider
-              attribute="pricing.cardmarket.avg"
-              min={0}
-              max={2500}
-            />
           </Panel>
         </div>
       </div>
