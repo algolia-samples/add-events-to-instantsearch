@@ -32,7 +32,7 @@ export default function Search() {
       <div className="container">
         <InstantSearch
           searchClient={searchClient}
-          indexName={indexName}
+          indexName={indexNamePriceDesc}
           routing={true}
           insights={{
             insightsClient: aa,

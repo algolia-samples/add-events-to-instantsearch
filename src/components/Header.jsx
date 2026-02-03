@@ -1,23 +1,19 @@
 import React from 'react';
-import pokeball from '../assets/pokeball_icon.svg';
+import logo from '../assets/tcg-search-logo.svg';
 
 export default function Header() {
   return (
     <header className="header">
       <a href="/">
         <img
-          className="pokeball"
-          src={pokeball}
-          alt="Pokeball Logo"
-          height="80px"
-          width="80px"
+          className="header-logo"
+          src={logo}
+          alt="TCG Search Logo"
+          height="100px"
         />
       </a>
-      <h1 className="header-title">
-        TCG Search
-      </h1>
       <p className="header-subtitle">
-        Gotta Click &apos;em All!
+        Gotta Find &apos;Em All!
       </p>
     </header>
   );
