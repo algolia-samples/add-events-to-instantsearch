@@ -242,7 +242,7 @@ em {
 
 .ais-SortBy-select {
   padding: 0.75rem 2rem 0.75rem 0.875rem;
-  font-size: 0.875rem;
+  font-size: 16px;
   font-weight: 600;
   color: #2d3748;
   background-color: white;
@@ -326,14 +326,14 @@ em {
 
 /* Smaller font for searchboxes inside filter panels */
 .ais-Panel .ais-SearchBox-input {
-  font-size: 0.875rem;
+  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   border: 1px solid #e2e8f0 !important;
 }
 
 .ais-Panel .ais-SearchBox-input::placeholder {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  font-size: 0.875rem;
+  font-size: 16px;
 }
 
 .ais-Panel .ais-SearchBox-input:focus {
@@ -1240,7 +1240,7 @@ article {
 
   /* Adjust SortBy on mobile to match filters button */
   .ais-SortBy-select {
-    font-size: 0.85rem;
+    font-size: 16px;
     padding: 0.625rem 1.5rem 0.625rem 0.5rem;
     width: 100%;
     height: 100%;
@@ -1558,7 +1558,7 @@ article {
   padding: 0.5rem;
   border: 1px solid #e2e8f0;
   border-radius: 4px;
-  font-size: 0.875rem;
+  font-size: 16px;
   outline: none;
   transition: border-color 0.2s ease;
 }
