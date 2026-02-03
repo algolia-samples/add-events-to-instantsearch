@@ -9,7 +9,6 @@ import {
   SearchBox,
   SortBy
 } from 'react-instantsearch';
-import { Panel } from './Panel';
 import aa from 'search-insights';
 import { userToken } from '../utilities/algolia';
 
@@ -19,8 +18,8 @@ import Header from './Header';
 import Hit from './Hit';
 import Item from './Item';
 import FilterDrawer from './FilterDrawer';
-import VariantFilter from './VariantFilter';
 import SearchableDropdown from './SearchableDropdown';
+import VariantsDropdown from './VariantsDropdown';
 
 export default function Search() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -90,6 +89,7 @@ export default function Search() {
           />
           <div className="search-panel">
             <div className="search-panel__filters">
+              <h2 className="search-panel__filters-header">Filters</h2>
               <SearchableDropdown
                 attribute="set"
                 placeholder="Set"
@@ -105,10 +105,9 @@ export default function Search() {
               <SearchableDropdown
                 attribute="rarity"
                 placeholder="Rarity"
+                enableSearch={false}
               />
-              <Panel header="variant">
-                <VariantFilter />
-              </Panel>
+              <VariantsDropdown />
             </div>
             <div className="search-panel__results">
               <Hits hitComponent={Hit} />

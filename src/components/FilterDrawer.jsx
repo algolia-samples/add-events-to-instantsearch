@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Panel } from './Panel';
-import VariantFilter from './VariantFilter';
 import SearchableDropdown from './SearchableDropdown';
+import VariantsDropdown from './VariantsDropdown';
 
 export default function FilterDrawer({ isOpen, onClose }) {
   return (
@@ -37,10 +36,9 @@ export default function FilterDrawer({ isOpen, onClose }) {
           <SearchableDropdown
             attribute="rarity"
             placeholder="Rarity"
+            enableSearch={false}
           />
-          <Panel header="variant">
-            <VariantFilter />
-          </Panel>
+          <VariantsDropdown />
         </div>
       </div>
     </>
