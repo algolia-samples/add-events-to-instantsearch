@@ -9,7 +9,7 @@ export default function VariantsDropdown() {
   const firstEdition = useRefinementList({ attribute: 'variants.firstEdition' });
   const promo = useRefinementList({ attribute: 'variants.wPromo' });
 
-  // Use shared dropdown behavior
+  // Use shared dropdown behavior (without search for variants)
   const {
     isOpen,
     searchQuery,
@@ -18,7 +18,8 @@ export default function VariantsDropdown() {
     buttonRef,
     handleSearch,
     toggleDropdown,
-  } = useDropdown();
+    enableSearch,
+  } = useDropdown({ enableSearch: false });
 
   // Define variant options with their hooks
   const variants = [
@@ -67,10 +68,12 @@ export default function VariantsDropdown() {
     return trueItem && trueItem.isRefined;
   });
 
-  // Filter variants by search query
-  const filteredVariants = variants.filter(variant =>
-    variant.label.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Filter variants by search query (if search is enabled)
+  const filteredVariants = enableSearch
+    ? variants.filter(variant =>
+        variant.label.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : variants;
 
   const getSelectionLabel = () => {
     if (selectedVariants.length === 0) {
@@ -118,16 +121,18 @@ export default function VariantsDropdown() {
 
       {isOpen && (
         <div className="searchable-dropdown__menu" style={menuStyle}>
-          <div className="searchable-dropdown__search">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={handleSearch}
-              placeholder="Search..."
-              className="searchable-dropdown__search-input"
-              autoFocus
-            />
-          </div>
+          {enableSearch && (
+            <div className="searchable-dropdown__search">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearch}
+                placeholder="Search..."
+                className="searchable-dropdown__search-input"
+                autoFocus
+              />
+            </div>
+          )}
 
           <div className="searchable-dropdown__items">
             {selectedVariants.length > 0 && (

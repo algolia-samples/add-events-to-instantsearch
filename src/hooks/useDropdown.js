@@ -5,9 +5,12 @@ import { useState, useRef, useEffect } from 'react';
  * - Open/close state management
  * - Click-outside detection
  * - Mobile positioning for quick filters
- * - Search query state
+ * - Search query state (optional)
+ *
+ * @param {Object} options - Configuration options
+ * @param {boolean} options.enableSearch - Whether to enable search functionality (default: true)
  */
-export function useDropdown() {
+export function useDropdown({ enableSearch = true } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [menuStyle, setMenuStyle] = useState({});
@@ -64,5 +67,6 @@ export function useDropdown() {
     buttonRef,
     handleSearch,
     toggleDropdown,
+    enableSearch,
   };
 }
