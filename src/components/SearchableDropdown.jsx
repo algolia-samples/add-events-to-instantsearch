@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useRefinementList } from 'react-instantsearch';
+import { useDropdown } from '../hooks/useDropdown';
 
 export default function SearchableDropdown({ attribute, placeholder, transformItems }) {
   const {
@@ -18,48 +19,21 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
     transformItems,
   });
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [menuStyle, setMenuStyle] = useState({});
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
+  // Use shared dropdown behavior
+  const {
+    isOpen,
+    searchQuery,
+    menuStyle,
+    dropdownRef,
+    buttonRef,
+    handleSearch: handleSearchBase,
+    toggleDropdown,
+  } = useDropdown();
 
-  // Calculate menu position for mobile quick filters
-  useEffect(() => {
-    if (isOpen && buttonRef.current) {
-      const isMobileQuickFilter = buttonRef.current.closest('.mobile-quick-filters');
-
-      if (isMobileQuickFilter && window.innerWidth <= 1024) {
-        const buttonRect = buttonRef.current.getBoundingClientRect();
-        setMenuStyle({
-          top: `${buttonRect.bottom + window.scrollY}px`,
-        });
-      } else {
-        setMenuStyle({});
-      }
-    }
-  }, [isOpen]);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
-  }, [isOpen]);
-
+  // Extend base search handler with Algolia's searchForItems
   const handleSearch = (e) => {
-    const value = e.target.value;
-    setSearchQuery(value);
-    searchForItems(value);
+    handleSearchBase(e);
+    searchForItems(e.target.value);
   };
 
   const handleSelect = (value) => {
@@ -106,7 +80,7 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
       <button
         ref={buttonRef}
         className="searchable-dropdown__toggle"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleDropdown}
         type="button"
       >
         <span className="searchable-dropdown__label">

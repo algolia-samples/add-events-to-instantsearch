@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { useRefinementList } from 'react-instantsearch';
+import { useDropdown } from '../hooks/useDropdown';
 
 export default function VariantsDropdown() {
   // Use separate hooks for each variant attribute
@@ -8,11 +9,16 @@ export default function VariantsDropdown() {
   const firstEdition = useRefinementList({ attribute: 'variants.firstEdition' });
   const promo = useRefinementList({ attribute: 'variants.wPromo' });
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
-  const [menuStyle, setMenuStyle] = useState({});
+  // Use shared dropdown behavior
+  const {
+    isOpen,
+    searchQuery,
+    menuStyle,
+    dropdownRef,
+    buttonRef,
+    handleSearch,
+    toggleDropdown,
+  } = useDropdown();
 
   // Define variant options with their hooks
   const variants = [
@@ -37,42 +43,6 @@ export default function VariantsDropdown() {
       attribute: 'variants.wPromo'
     },
   ];
-
-  // Calculate menu position for mobile quick filters
-  useEffect(() => {
-    if (isOpen && buttonRef.current) {
-      const isMobileQuickFilter = buttonRef.current.closest('.mobile-quick-filters');
-
-      if (isMobileQuickFilter && window.innerWidth <= 1024) {
-        const buttonRect = buttonRef.current.getBoundingClientRect();
-        setMenuStyle({
-          top: `${buttonRect.bottom + window.scrollY}px`,
-        });
-      } else {
-        setMenuStyle({});
-      }
-    }
-  }, [isOpen]);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
-  }, [isOpen]);
-
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
 
   const handleToggle = (variantHook) => {
     // Find the "true" item and toggle it
@@ -127,7 +97,7 @@ export default function VariantsDropdown() {
       <button
         ref={buttonRef}
         className="searchable-dropdown__toggle"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleDropdown}
         type="button"
       >
         <span className="searchable-dropdown__label">
