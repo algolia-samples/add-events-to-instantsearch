@@ -91,34 +91,22 @@ export default function Search() {
           />
           <div className="search-panel">
             <div className="search-panel__filters">
-              <div className="filter-group">
-                <label className="filter-label">Set</label>
-                <SearchableDropdown
-                  attribute="set"
-                  placeholder="Select sets..."
-                />
-              </div>
-              <div className="filter-group">
-                <label className="filter-label">Artist</label>
-                <SearchableDropdown
-                  attribute="artist"
-                  placeholder="Select artists..."
-                />
-              </div>
-              <div className="filter-group">
-                <label className="filter-label">Type</label>
-                <SearchableDropdown
-                  attribute="types"
-                  placeholder="Select types..."
-                />
-              </div>
-              <div className="filter-group">
-                <label className="filter-label">Rarity</label>
-                <SearchableDropdown
-                  attribute="rarity"
-                  placeholder="Select rarities..."
-                />
-              </div>
+              <SearchableDropdown
+                attribute="set"
+                placeholder="Set"
+              />
+              <SearchableDropdown
+                attribute="artist"
+                placeholder="Artist"
+              />
+              <SearchableDropdown
+                attribute="types"
+                placeholder="Type"
+              />
+              <SearchableDropdown
+                attribute="rarity"
+                placeholder="Rarity"
+              />
               <Panel header="variant">
                 <VariantFilter />
               </Panel>
