@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="640" height="480" viewBox="0 0 640 480"
+     role="img" aria-label="TCG Search logo">
+  <defs>
+    <!-- Yellow fill -->
+    <linearGradient id="yellowFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF6B3"/>
+      <stop offset="0.55" stop-color="#FFD83D"/>
+      <stop offset="1" stop-color="#FFB300"/>
+    </linearGradient>
+
+    <!-- ✅ FIXED: shadow merges back with SourceGraphic -->
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feOffset dx="0" dy="8" in="SourceAlpha" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="10" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .30 0" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- ✅ FIXED: card shadow also merges -->
+    <filter id="cardShadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feOffset dx="0" dy="6" in="SourceAlpha" result="off"/>
+      <feGaussianBlur in="off" stdDeviation="6" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .38 0" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arc path -->
+    <path id="arcText" d="M 70 260 Q 320 95 570 260" />
+  </defs>
+
+  <!-- WORDMARK -->
+  <g filter="url(#shadow)">
+    <!-- red sticker edge -->
+    <text font-family="Trebuchet MS, Arial Rounded MT Bold, Arial Black, system-ui, sans-serif"
+          font-weight="900" font-size="88" letter-spacing="1.5"
+          fill="none" stroke="#B00016" stroke-width="38" stroke-linejoin="round">
+      <textPath href="#arcText" startOffset="50%" text-anchor="middle">TCG Search</textPath>
+    </text>
+
+    <!-- blue outline -->
+    <text font-family="Trebuchet MS, Arial Rounded MT Bold, Arial Black, system-ui, sans-serif"
+          font-weight="900" font-size="88" letter-spacing="1.5"
+          fill="none" stroke="#1E4ED8" stroke-width="28" stroke-linejoin="round">
+      <textPath href="#arcText" startOffset="50%" text-anchor="middle">TCG Search</textPath>
+    </text>
+
+    <!-- white outline -->
+    <text font-family="Trebuchet MS, Arial Rounded MT Bold, Arial Black, system-ui, sans-serif"
+          font-weight="900" font-size="88" letter-spacing="1.5"
+          fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linejoin="round">
+      <textPath href="#arcText" startOffset="50%" text-anchor="middle">TCG Search</textPath>
+    </text>
+
+    <!-- yellow fill -->
+    <text font-family="Trebuchet MS, Arial Rounded MT Bold, Arial Black, system-ui, sans-serif"
+          font-weight="900" font-size="88" letter-spacing="1.5"
+          fill="url(#yellowFill)">
+      <textPath href="#arcText" startOffset="50%" text-anchor="middle">TCG Search</textPath>
+    </text>
+  </g>
+
+  <!-- FOREGROUND CARD (clearly on top) -->
+  <g transform="translate(265,215) rotate(-12)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="110" height="150" rx="18"
+          fill="#FFFFFF" stroke="#1E4ED8" stroke-width="8"/>
+    <rect x="14" y="16" width="82" height="36" rx="10"
+          fill="#FFD83D" stroke="#B00016" stroke-width="4"/>
+    <path d="M18 78 H92" stroke="#1E4ED8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M18 100 H76" stroke="#1E4ED8" stroke-width="8" stroke-linecap="round"/>
+    <path d="M80 0 h30 v34 h-30 z" fill="#B00016"/>
+  </g>
+
+  <!-- FOREGROUND STAR (on top) -->
+  <g transform="translate(485,215) rotate(10)">
+    <path d="M40 0 L52 26 L80 38 L52 50 L40 78
+             L28 50 L0 38 L28 26 Z"
+          fill="#FFFFFF"/>
+    <path d="M40 12 L46 28 L64 34 L46 40
+             L40 56 L34 40 L16 34 L34 28 Z"
+          fill="#1E4ED8"/>
+  </g>
+</svg>
+

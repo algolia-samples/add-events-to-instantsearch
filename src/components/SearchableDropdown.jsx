@@ -20,7 +20,25 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [menuStyle, setMenuStyle] = useState({});
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // Calculate menu position for mobile quick filters
+  useEffect(() => {
+    if (isOpen && buttonRef.current) {
+      const isMobileQuickFilter = buttonRef.current.closest('.mobile-quick-filters');
+
+      if (isMobileQuickFilter && window.innerWidth <= 1024) {
+        const buttonRect = buttonRef.current.getBoundingClientRect();
+        setMenuStyle({
+          top: `${buttonRect.bottom + window.scrollY}px`,
+        });
+      } else {
+        setMenuStyle({});
+      }
+    }
+  }, [isOpen]);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -86,6 +104,7 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
   return (
     <div className="searchable-dropdown" ref={dropdownRef}>
       <button
+        ref={buttonRef}
         className="searchable-dropdown__toggle"
         onClick={() => setIsOpen(!isOpen)}
         type="button"
@@ -107,7 +126,7 @@ export default function SearchableDropdown({ attribute, placeholder, transformIt
       </button>
 
       {isOpen && (
-        <div className="searchable-dropdown__menu">
+        <div className="searchable-dropdown__menu" style={menuStyle}>
           <div className="searchable-dropdown__search">
             <input
               type="text"

@@ -1129,7 +1129,9 @@ article {
   }
 
   .mobile-quick-filters .searchable-dropdown {
-    flex: 1;
+    flex: 0 1 auto;
+    min-width: 60px;
+    max-width: 85px;
     margin-bottom: 0;
   }
 
@@ -1141,9 +1143,9 @@ article {
     border-radius: 8px;
     background: white !important;
     border: 2px solid #3B4CCA !important;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.625rem 0.875rem;
+    padding: 0.625rem 0.5rem;
     height: 100%;
   }
 
@@ -1162,14 +1164,17 @@ article {
     stroke: #2d3748 !important;
   }
 
-  /* Make dropdown menus wider than buttons on mobile */
+  /* Make dropdown menus wider than buttons on mobile - anchor to left with proper positioning */
   .mobile-quick-filters .searchable-dropdown__menu {
-    left: 50%;
+    position: fixed;
+    top: auto;
+    left: 0.75rem;
     right: auto;
-    transform: translateX(-50%);
+    transform: none;
     min-width: 280px;
-    width: max-content;
-    max-width: 90vw;
+    width: calc(100vw - 1.5rem);
+    max-width: 400px;
+    margin-top: 0.5rem;
   }
 
   /* Hide Set and Artist from desktop filter panel on mobile (first two dropdowns) */
@@ -1198,15 +1203,16 @@ article {
 
   /* Mobile: Sort on second line with filters */
   .search-controls-row .ais-SortBy {
-    flex: 0 0 auto;
-    min-width: 150px;
+    flex: 0 1 auto;
+    min-width: 100px;
+    max-width: 130px;
     order: 3;
   }
 
   /* Ensure all controls in row 2 have same height */
   .search-controls-row {
     align-items: stretch;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .search-controls-row > * {
@@ -1216,10 +1222,12 @@ article {
 
   /* Adjust SortBy on mobile to match filters button */
   .ais-SortBy-select {
-    font-size: 0.9rem;
-    padding: 0.625rem 2rem 0.625rem 0.875rem;
+    font-size: 0.85rem;
+    padding: 0.625rem 1.5rem 0.625rem 0.5rem;
     width: 100%;
     height: 100%;
+    background-position: right 0.35rem center;
+    background-size: 1rem;
   }
 
   /* Hide desktop filters on mobile */
