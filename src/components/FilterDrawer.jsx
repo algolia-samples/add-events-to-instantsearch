@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RefinementList } from 'react-instantsearch';
 import RangeSlider from './RangeSlider';
 import { Panel } from './Panel';
 import VariantFilter from './VariantFilter';
+import SearchableDropdown from './SearchableDropdown';
 
 export default function FilterDrawer({ isOpen, onClose }) {
   return (
@@ -23,34 +23,36 @@ export default function FilterDrawer({ isOpen, onClose }) {
         </div>
 
         <div className="filter-drawer-content">
-          <Panel header="set">
-            <RefinementList
+          <div className="filter-group">
+            <label className="filter-label">Set</label>
+            <SearchableDropdown
               attribute="set"
-              searchable={true}
-              searchablePlaceholder="Search sets..."
-              limit={5}
-              showMore={true}
-              showMoreLimit={20}
+              placeholder="Select sets..."
             />
-          </Panel>
-          <Panel header="artist">
-            <RefinementList
+          </div>
+          <div className="filter-group">
+            <label className="filter-label">Artist</label>
+            <SearchableDropdown
               attribute="artist"
-              searchable={true}
-              searchablePlaceholder="Search artists..."
-              limit={5}
-              showMore={true}
-              showMoreLimit={20}
+              placeholder="Select artists..."
             />
-          </Panel>
+          </div>
+          <div className="filter-group">
+            <label className="filter-label">Type</label>
+            <SearchableDropdown
+              attribute="types"
+              placeholder="Select types..."
+            />
+          </div>
+          <div className="filter-group">
+            <label className="filter-label">Rarity</label>
+            <SearchableDropdown
+              attribute="rarity"
+              placeholder="Select rarities..."
+            />
+          </div>
           <Panel header="variant">
             <VariantFilter />
-          </Panel>
-          <Panel header="type">
-            <RefinementList attribute="types" />
-          </Panel>
-          <Panel header="rarity">
-            <RefinementList attribute="rarity" />
           </Panel>
           <Panel header="value">
             <RangeSlider

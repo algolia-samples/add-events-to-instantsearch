@@ -6,7 +6,6 @@ import {
   Hits,
   InstantSearch,
   Pagination,
-  RefinementList,
   SearchBox,
   SortBy
 } from 'react-instantsearch';
@@ -22,6 +21,7 @@ import Hit from './Hit';
 import Item from './Item';
 import FilterDrawer from './FilterDrawer';
 import VariantFilter from './VariantFilter';
+import SearchableDropdown from './SearchableDropdown';
 
 export default function Search() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -47,8 +47,9 @@ export default function Search() {
           />
           <div className="search-header">
             <div className="search-controls-row">
+              <SearchBox placeholder="Search for cards" className="searchbox" />
               <button
-                className="filter-toggle-btn"
+                className="filter-toggle-btn filter-toggle-btn--icon-only"
                 onClick={() => setIsFilterOpen(true)}
                 aria-label="Open filters"
               >
@@ -57,9 +58,18 @@ export default function Search() {
                   <line x1="4" y1="12" x2="20" y2="12"/>
                   <line x1="4" y1="18" x2="20" y2="18"/>
                 </svg>
-                <span>Filters</span>
+                <span className="filter-toggle-btn__text">Filters</span>
               </button>
-              <SearchBox placeholder="Search for cards" className="searchbox" />
+              <div className="mobile-quick-filters">
+                <SearchableDropdown
+                  attribute="set"
+                  placeholder="Set"
+                />
+                <SearchableDropdown
+                  attribute="artist"
+                  placeholder="Artist"
+                />
+              </div>
               <SortBy
                 items={[
                   { label: 'Sort A-Z', value: indexName },
@@ -81,34 +91,36 @@ export default function Search() {
           />
           <div className="search-panel">
             <div className="search-panel__filters">
-              <Panel header="set">
-                <RefinementList
+              <div className="filter-group">
+                <label className="filter-label">Set</label>
+                <SearchableDropdown
                   attribute="set"
-                  searchable={true}
-                  searchablePlaceholder="Search sets..."
-                  limit={5}
-                  showMore={true}
-                  showMoreLimit={20}
+                  placeholder="Select sets..."
                 />
-              </Panel>
-              <Panel header="artist">
-                <RefinementList
+              </div>
+              <div className="filter-group">
+                <label className="filter-label">Artist</label>
+                <SearchableDropdown
                   attribute="artist"
-                  searchable={true}
-                  searchablePlaceholder="Search artists..."
-                  limit={5}
-                  showMore={true}
-                  showMoreLimit={20}
+                  placeholder="Select artists..."
                 />
-              </Panel>
+              </div>
+              <div className="filter-group">
+                <label className="filter-label">Type</label>
+                <SearchableDropdown
+                  attribute="types"
+                  placeholder="Select types..."
+                />
+              </div>
+              <div className="filter-group">
+                <label className="filter-label">Rarity</label>
+                <SearchableDropdown
+                  attribute="rarity"
+                  placeholder="Select rarities..."
+                />
+              </div>
               <Panel header="variant">
                 <VariantFilter />
-              </Panel>
-              <Panel header="type">
-                <RefinementList attribute="types" />
-              </Panel>
-              <Panel header="rarity">
-                <RefinementList attribute="rarity" />
               </Panel>
               <Panel header="value">
                 <RangeSlider
