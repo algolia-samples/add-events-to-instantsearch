@@ -223,6 +223,40 @@ em {
   flex: 3;
 }
 
+.search-controls-row .ais-SortBy {
+  flex: 1;
+}
+
+.ais-SortBy-select {
+  padding: 0.75rem 2rem 0.75rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%233B4CCA' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  border: 2px solid #3B4CCA;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.ais-SortBy-select:hover {
+  border-color: #00aeff;
+  box-shadow: 0 4px 8px rgba(59, 76, 202, 0.2);
+}
+
+.ais-SortBy-select:focus {
+  outline: none;
+  border-color: #00aeff;
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.1);
+}
+
 .ais-Hits-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -248,25 +282,87 @@ em {
   margin-bottom: 2rem;
 }
 
-.search-header-row {
+.search-controls-row {
   display: flex;
   align-items: center;
   gap: 1rem;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .searchbox {
   flex: 1;
+  min-width: 200px;
 }
 
 .ais-SearchBox-input {
   font-family: 'Righteous', cursive;
   font-size: 1.25rem;
+  border: 2px solid #3B4CCA !important;
 }
 
 .ais-SearchBox-input::placeholder {
   font-family: 'Righteous', cursive;
   opacity: 0.6;
+}
+
+.ais-SearchBox-input:focus {
+  border-color: #00aeff !important;
+  box-shadow: 0 0 0 3px rgba(59, 76, 202, 0.1) !important;
+}
+
+/* Smaller font for searchboxes inside filter panels */
+.ais-Panel .ais-SearchBox-input {
+  font-size: 0.875rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.ais-Panel .ais-SearchBox-input::placeholder {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+}
+
+.ais-Panel .ais-SearchBox-input:focus {
+  border-color: #3B4CCA !important;
+  box-shadow: 0 0 0 2px rgba(59, 76, 202, 0.1) !important;
+}
+
+/* Show more button styling - use specific selectors for higher specificity */
+.ais-Panel-body .ais-RefinementList-showMore {
+  margin-top: 0.75rem;
+  padding: 0.375rem 0.75rem;
+  background: white;
+  border: 1px solid #3B4CCA;
+  border-radius: 4px;
+  color: #3B4CCA;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.ais-Panel-body .ais-RefinementList-showMore:hover {
+  background: #3B4CCA;
+  color: white;
+}
+
+.ais-Panel-body .ais-RefinementList-showMore:active,
+.ais-Panel-body .ais-RefinementList-showMore:focus {
+  background: #3B4CCA;
+  color: white;
+  outline: none;
+}
+
+.ais-Panel-body .ais-RefinementList-showMore--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ais-Panel-body .ais-RefinementList-showMore--disabled:hover {
+  background: white;
+  color: #3B4CCA;
 }
 
 .pagination {
@@ -992,6 +1088,28 @@ article {
     display: flex;
   }
 
+  /* Mobile: force search box to full width on first line */
+  .searchbox {
+    flex: 1 1 100%;
+    order: -1;
+  }
+
+  /* Mobile: filters and sort on second line, equal width */
+  .search-controls-row .filter-toggle-btn {
+    flex: 1 1 0;
+  }
+
+  .search-controls-row .ais-SortBy {
+    flex: 1 1 0;
+  }
+
+  /* Adjust SortBy on mobile to match filters button */
+  .ais-SortBy-select {
+    font-size: 1rem;
+    padding: 0.75rem 2rem 0.75rem 1rem;
+    width: 100%;
+  }
+
   /* Hide desktop filters on mobile */
   .search-panel__filters {
     display: none;
@@ -1087,30 +1205,6 @@ article {
     max-width: 60%;
   }
 
-  /* Stack search header on mobile */
-  .search-header {
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    max-width: 100%;
-  }
-
-  .searchbox {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .ais-SearchBox {
-    max-width: 100%;
-  }
-
-  .ais-SearchBox-form {
-    max-width: 100%;
-  }
-
-  .ais-SearchBox-input {
-    max-width: 100%;
-  }
 
   /* Improve hit text sizing on mobile */
   .hit-card .hit-header h1,
@@ -1228,6 +1322,30 @@ article {
 
   .search-panel__filters {
     display: block;
+  }
+
+  /* Desktop: search and sort on same line */
+  .search-header {
+    gap: 1rem;
+  }
+
+  .search-controls-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .searchbox {
+    flex: 1;
+  }
+
+  .search-controls-row .ais-SortBy {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .ais-SortBy-select {
+    min-width: 140px;
+    width: auto;
   }
 
   .ais-Hits-list {
